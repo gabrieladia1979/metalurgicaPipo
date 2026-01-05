@@ -1,0 +1,61 @@
+---
+// src/components/ProductCategories.astro
+const families = [
+  {
+    title: "Válvulas de Compresor",
+    description: "Válvulas de plato, de anillos y concéntricas para alta y baja presión.",
+    items: ["Válvulas de Plato", "Válvulas de Anillo", "Kits de reparación"],
+    image: "/images/placeholder-valvula.png"
+  },
+  {
+    title: "Aros y Empaquetaduras",
+    description: "Sellado de alto rendimiento para pistones y vástagos.",
+    items: ["Aros de pistón", "Empaquetaduras de vástago", "Rascadores de aceite"],
+    image: "/images/placeholder-aros.png"
+  },
+  {
+    title: "Servicios de Reparación",
+    description: "Rectificación y puesta a punto de componentes críticos.",
+    items: ["Reacondicionamiento", "Mecanizado CNC", "Pruebas hidráulicas"],
+    image: "/images/placeholder-servicios.png"
+  }
+];
+---
+
+<section class="py-20 bg-bergner-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 border-l-4 border-bergner-red pl-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 uppercase tracking-tight">Nuestras Soluciones</h2>
+      <p class="mt-2 text-lg text-gray-600 max-w-2xl">Componentes de reemplazo y servicios con calidad OEM para la industria.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {families.map((family) => (
+        <article class="group bg-white rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-transparent hover:border-bergner-red flex flex-col">
+          <div class="h-48 bg-white overflow-hidden flex items-center justify-center p-6 relative">
+            <div class="absolute inset-0 bg-bergner-red opacity-0 group-hover:opacity-5 transition-opacity"></div>
+            <img src={family.image} alt={family.title} class="h-full w-full object-contain mix-blend-multiply filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
+          </div>
+
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-bergner-red transition-colors">{family.title}</h3>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">{family.description}</p>
+
+            <ul class="space-y-2 mb-6">
+              {family.items.map((item) => (
+                <li class="flex items-center text-sm text-gray-600">
+                  <svg class="w-4 h-4 text-bergner-red mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-auto pt-4 border-t border-slate-100">
+              <a href="/productos" class="flex items-center text-bergner-red font-bold text-sm uppercase tracking-wider group-hover:underline">Ver Catálogo <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

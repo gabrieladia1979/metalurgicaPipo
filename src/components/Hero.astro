@@ -1,4 +1,5 @@
 ---
+import site from '../data/site.json';
 // src/components/Hero.astro
 ---
 
@@ -36,13 +37,13 @@
           </a>
           
           <a 
-            href="https://wa.me/5491100000000?text=Hola, me gustaría obtener más información sobre sus productos..."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center border-2 border-bergner-red text-bergner-red hover:bg-bergner-red hover:text-white px-8 py-4 rounded-lg font-bold transition-all text-lg"
-          >
-            Contactar por WhatsApp
-          </a>
+              href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, me gustaría obtener más información sobre sus productos...')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center border-2 border-bergner-red text-bergner-red hover:bg-bergner-red hover:text-white px-8 py-4 rounded-lg font-bold transition-all text-lg"
+            >
+              Contactar por WhatsApp
+            </a>
         </div>
 
         <div class="mt-12 flex gap-8 text-sm">

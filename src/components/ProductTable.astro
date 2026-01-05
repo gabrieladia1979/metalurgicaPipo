@@ -1,0 +1,49 @@
+---
+// src/components/ProductTable.astro
+interface Props {
+  products: any[];
+}
+
+const { products } = Astro.props;
+import site from '../data/site.json';
+const whatsappNumber = site.whatsappNumber || '5491100000000';
+---
+
+<div class="overflow-x-auto bg-white rounded border border-gray-200">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Código</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nombre</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Material</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Diámetro</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Presión / Aplicación</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stock</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ficha</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Acción</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-100 text-sm">
+      {products.map((p) => {
+        const specs = p.specs || {};
+        const material = specs['Material'] || specs['material'] || '-';
+        const diam = specs['Diámetro'] || specs['Diametro'] || specs['Diámetro(mm)'] || '-';
+        const pres = specs['Presión'] || specs['Presion'] || specs['Aplicación'] || specs['Aplicacion'] || specs['Temperatura'] || '-';
+        return (
+          <tr>
+            <td class="px-4 py-3 font-mono text-gray-700">{p.partNumber}</td>
+            <td class="px-4 py-3 text-gray-900">{p.title}</td>
+            <td class="px-4 py-3 text-gray-700">{material}</td>
+            <td class="px-4 py-3 text-gray-700">{diam}</td>
+            <td class="px-4 py-3 text-gray-700">{pres}</td>
+            <td class="px-4 py-3 text-gray-700">{p.inStock ? 'En Stock' : 'Consultar'}</td>
+            <td class="px-4 py-3 text-gray-700">{p.pdf ? (<a href={p.pdf} target="_blank" rel="noopener noreferrer" class="text-bergner-red underline">Descargar</a>) : '-'}</td>
+            <td class="px-4 py-3 text-gray-700">
+              <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, consulto por el repuesto código ${p.partNumber}: ${p.title}`)}`} target="_blank" rel="noopener noreferrer" class="inline-block bg-bergner-red text-white px-3 py-1 rounded text-sm">WhatsApp</a>
+            </td>
+          </tr>
+        )
+      })}
+    </tbody>
+  </table>
+</div>

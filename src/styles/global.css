@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -10,4 +10,9 @@ html {
 
 body {
   @apply bg-white text-gray-900 font-sans;
+}
+
+/* Small utility to prefer technical/light backgrounds */
+.bg-technical {
+  background-color: #F4F6F8;
 }

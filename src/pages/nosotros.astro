@@ -3,6 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
 ---
 
 <Layout title="Nosotros">
@@ -85,7 +86,7 @@ import Footer from '../components/Footer.astro';
           Estamos disponibles para consultas personalizadas. Contactanos por WhatsApp o visitanos en nuestras oficinas.
         </p>
         <a 
-          href="https://wa.me/5491100000000?text=Hola, quiero conocer más sobre Metalúrgica Pipo..."
+          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero conocer más sobre Metalúrgica Pipo...')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-bergner-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-colors"

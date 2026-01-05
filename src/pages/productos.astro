@@ -3,57 +3,45 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import ProductCard from '../components/ProductCard.astro';
+import IndustrialPartCard from '../components/IndustrialPartCard.astro';
+import ProductTable from '../components/ProductTable.astro';
 import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
 
 // Datos de ejemplo - reemplazar con datos de CMS o BD
 const productos = [
   {
     id: 1,
-    title: 'Olla Profesional Inox 20cm',
-    category: 'Ollas',
-    description: 'Olla de acero inoxidable 18/10. Ideal para cocción uniforme y profesional.',
+    partNumber: '450-12',
+    title: 'Válvula Concéntrica Modelo 450',
+    category: 'Válvulas',
+    description: 'Válvula para compresores, cuerpo en acero al carbono.',
     image: '',
-    whatsappMessage: 'Hola, me interesa la Olla Profesional Inox 20cm. ¿Cuál es el precio y disponibilidad?'
+    inStock: true,
+    pdf: '/docs/valvula-450.pdf',
+    specs: { 'Material': 'Acero', 'Diámetro': '40 mm', 'Presión': '200 Bar' }
   },
   {
     id: 2,
-    title: 'Sartén Antiadherente Bergner',
-    category: 'Sartenes',
-    description: 'Sartén con revestimiento antiadherente premium. Excelente distribución de calor.',
+    partNumber: 'A-210',
+    title: 'Aro de Ajuste A-210',
+    category: 'Aros',
+    description: 'Aro de retención para ejes rotativos.',
     image: '',
-    whatsappMessage: 'Hola, me interesa la Sartén Antiadherente Bergner. ¿Cuál es el precio y disponibilidad?'
+    inStock: false,
+    pdf: '',
+    specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
   },
   {
     id: 3,
-    title: 'Set de Cubiertos Profesionales',
-    category: 'Cubiertos',
-    description: 'Juego completo de 24 cubiertos de acero inoxidable. Diseño elegante y duradero.',
+    partNumber: 'EMP-03',
+    title: 'Empaquetadura Tipo 03',
+    category: 'Empaquetaduras',
+    description: 'Empaquetadura para sellado de válvulas y bombas.',
     image: '',
-    whatsappMessage: 'Hola, me interesa el Set de Cubiertos Profesionales. ¿Cuál es el precio y disponibilidad?'
-  },
-  {
-    id: 4,
-    title: 'Olla a Presión Industrial',
-    category: 'Ollas',
-    description: 'Olla a presión de acero inoxidable para cocina profesional. Segura y eficiente.',
-    image: '',
-    whatsappMessage: 'Hola, me interesa la Olla a Presión Industrial. ¿Cuál es el precio y disponibilidad?'
-  },
-  {
-    id: 5,
-    title: 'Batería de Cocina 10 Piezas',
-    category: 'Baterías de Cocina',
-    description: 'Set completo de ollas y sartenes. Todo lo que necesitas para tu cocina.',
-    image: '',
-    whatsappMessage: 'Hola, me interesa la Batería de Cocina 10 Piezas. ¿Cuál es el precio y disponibilidad?'
-  },
-  {
-    id: 6,
-    title: 'Tabla de Corte Profesional',
-    category: 'Accesorios',
-    description: 'Tabla de polietileno. Resistente y fácil de limpiar. Ideal para kitchens profesionales.',
-    image: '',
-    whatsappMessage: 'Hola, me interesa la Tabla de Corte Profesional. ¿Cuál es el precio y disponibilidad?'
+    inStock: true,
+    pdf: '/docs/empaquetadura-03.pdf',
+    specs: { 'Material': 'Grafito', 'Temperatura': '-50°C a 400°C' }
   },
 ];
 ---
@@ -76,16 +64,32 @@ const productos = [
 
     {/* Productos Grid */}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="mb-6">
+        <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+          <input id="page-search-input" type="search" placeholder="Filtrar en página por código, nombre o categoría" class="w-full md:w-1/2 border border-gray-300 rounded-lg py-2 px-3 text-sm" />
+          <div class="mt-3 md:mt-0 flex gap-2">
+            <button id="view-grid" type="button" class="px-3 py-2 bg-white border border-gray-300 rounded text-sm">Ver Grilla</button>
+            <button id="view-table" type="button" class="px-3 py-2 bg-white border border-gray-300 rounded text-sm">Ver Tabla</button>
+          </div>
+        </div>
+        <p id="search-results" class="text-sm text-gray-600 mt-2"></p>
+      </div>
+
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {productos.map((producto) => (
-          <ProductCard
-            title={producto.title}
-            category={producto.category}
-            description={producto.description}
+          <IndustrialPartCard
+            partNumber={producto.partNumber}
+            name={producto.title}
+            specs={producto.specs}
             image={producto.image}
-            whatsappMessage={producto.whatsappMessage}
+            inStock={producto.inStock}
+            pdf={producto.pdf}
           />
         ))}
+      </div>
+
+      <div id="products-table" class="hidden mt-8">
+        <ProductTable products={productos} />
       </div>
     </div>
 
@@ -97,7 +101,7 @@ const productos = [
           Contáctanos para consultar por otros productos o realizar un pedido personalizado.
         </p>
         <a 
-          href="https://wa.me/5491100000000?text=Hola, tengo una consulta sobre productos Bergner que no están en el catálogo..."
+          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, tengo una consulta sobre productos Bergner que no están en el catálogo...')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-white text-bergner-red hover:bg-gray-100 px-8 py-4 rounded-lg font-bold transition-colors"
@@ -110,3 +114,72 @@ const productos = [
 
   <Footer />
 </Layout>
+
+<script>
+  (function(){
+    const params = new URLSearchParams(location.search);
+    const q = (params.get('q')||'').toLowerCase().trim();
+    const grid = document.getElementById('products-grid');
+    const items = grid?.querySelectorAll('[data-title]');
+    const headerInput = document.getElementById('header-search-input');
+    const pageInput = document.getElementById('page-search-input');
+    const resultsEl = document.getElementById('search-results');
+
+    if(headerInput && q) headerInput.value = params.get('q');
+    if(pageInput && q) pageInput.value = params.get('q');
+
+    function filter(term){
+      const t = (term||'').toLowerCase().trim();
+      let any=false;
+      items?.forEach(el=>{
+        const title = (el.dataset.title||'').toLowerCase();
+        const cat = (el.dataset.category||'').toLowerCase();
+        const desc = (el.dataset.description||'').toLowerCase();
+        const show = !t || title.includes(t) || cat.includes(t) || desc.includes(t);
+        el.style.display = show ? '' : 'none';
+        if(show) any = true;
+      });
+      if(resultsEl){
+        resultsEl.textContent = t ? (any ? `Resultados para "${t}"` : `No se encontraron resultados para "${t}"`) : '';
+      }
+    }
+
+    // inicial
+    filter(q);
+
+    // escucha input en la página
+    if(pageInput){
+      pageInput.addEventListener('input', (e)=>{
+        const val = e.target.value;
+        history.replaceState(null, '', val ? `?q=${encodeURIComponent(val)}` : location.pathname);
+        if(headerInput) headerInput.value = val;
+        filter(val);
+      });
+    }
+
+    // View toggle (grid / table)
+    const btnGrid = document.getElementById('view-grid');
+    const btnTable = document.getElementById('view-table');
+    const gridEl = document.getElementById('products-grid');
+    const tableEl = document.getElementById('products-table');
+
+    function setView(view){
+      if(view==='table'){
+        gridEl.classList.add('hidden');
+        tableEl.classList.remove('hidden');
+        history.replaceState(null,'',`?view=table${pageInput?.value?`&q=${encodeURIComponent(pageInput.value)}`:''}`);
+      } else {
+        tableEl.classList.add('hidden');
+        gridEl.classList.remove('hidden');
+        history.replaceState(null,'',`${location.pathname}${pageInput?.value?`?q=${encodeURIComponent(pageInput.value)}`:''}`);
+      }
+    }
+
+    btnGrid?.addEventListener('click', ()=> setView('grid'));
+    btnTable?.addEventListener('click', ()=> setView('table'));
+
+    // initialize view param
+    const viewParam = new URLSearchParams(location.search).get('view');
+    if(viewParam==='table') setView('table');
+  })();
+</script>

@@ -3,6 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
 ---
 
 <Layout title="Contacto">
@@ -82,7 +83,7 @@ import Footer from '../components/Footer.astro';
                   <h3 class="font-bold text-gray-900 mb-1">WhatsApp</h3>
                   <p class="text-gray-600 mb-2">+54 9 11 0000-0000</p>
                   <a 
-                    href="https://wa.me/5491100000000?text=Hola, quiero consultar..."
+                    href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero consultar...')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm"
@@ -207,6 +208,32 @@ import Footer from '../components/Footer.astro';
         <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Ubicación</h2>
         <div class="rounded-xl overflow-hidden shadow-lg h-96 bg-gray-200 flex items-center justify-center">
           <p class="text-gray-500 font-semibold">Mapa interactivo (integrar con Google Maps)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descargas: Catálogo y Fichas -->
+    <section class="py-12 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Descargas</h2>
+        <p class="text-gray-600 mb-6">Descargá catálogos y fichas técnicas en PDF para tus reparaciones y consultas.</p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="/docs/valvula-450.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+            <div>
+              <p class="font-semibold text-gray-900">Ficha Técnica – Válvula Modelo 450</p>
+              <p class="text-sm text-gray-500">Material, dimensiones y especificaciones de presión.</p>
+            </div>
+            <div class="text-sm text-bergner-red font-medium">Descargar</div>
+          </a>
+
+          <a href="/docs/empaquetadura-03.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+            <div>
+              <p class="font-semibold text-gray-900">Ficha Técnica – Empaquetadura Tipo 03</p>
+              <p class="text-sm text-gray-500">Rangos de temperatura y aplicaciones recomendadas.</p>
+            </div>
+            <div class="text-sm text-bergner-red font-medium">Descargar</div>
+          </a>
         </div>
       </div>
     </section>

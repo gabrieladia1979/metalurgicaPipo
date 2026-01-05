@@ -9,11 +9,13 @@ interface Props {
   whatsappMessage: string;
 }
 
+import site from '../data/site.json';
+
 const { image, title, category, description, whatsappMessage } = Astro.props;
-const whatsappNumber = "5491100000000"; // Reemplazar con número real
+const whatsappNumber = site.whatsappNumber || '5491100000000';
 ---
 
-<div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full">
+<div class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full" data-title={title} data-category={category} data-description={description}>
   
   {/* Imagen con efecto zoom */}
   <div class="h-64 overflow-hidden bg-gray-50 flex items-center justify-center p-4">

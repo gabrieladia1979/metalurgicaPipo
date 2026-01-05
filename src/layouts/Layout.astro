@@ -5,6 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 import '../styles/global.css';
+import site from '../data/site.json';
 ---
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ import '../styles/global.css';
     
     <!-- Botón flotante WhatsApp -->
     <a 
-      href="https://wa.me/5491100000000?text=Hola, vi su web y quiero consultar por productos Bergner..."
+      href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, vi su web y quiero consultar por productos Bergner...')}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
