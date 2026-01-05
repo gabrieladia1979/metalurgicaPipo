@@ -1,0 +1,100 @@
+---
+// src/pages/nosotros.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Nosotros">
+  <Header />
+  
+  <main class="min-h-screen bg-white">
+    {/* Hero */}
+    <section class="bg-gradient-to-b from-gray-50 to-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Sobre Nosotros
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl">
+          Más de 25 años distribuyendo equipamiento gastronómico de calidad
+        </p>
+      </div>
+    </section>
+
+    {/* Historia */}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Metalúrgica Pipo nace en los '90s como distribuidora oficial de marcas líderes en equipamiento gastronómico. Comenzamos con una pequeña oficina en Buenos Aires y hoy somos referentes en la venta de productos Bergner.
+            </p>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Nuestra misión es proporcionar a chefs profesionales, restaurantes y hogares exigentes, equipamiento de la más alta calidad, con garantía y servicio técnico especializado.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Cada producto que vendemos es seleccionado cuidadosamente para asegurar que cumple con los más altos estándares de durabilidad y rendimiento.
+            </p>
+          </div>
+          <div class="bg-gradient-to-br from-bergner-red/10 to-bergner-red/5 rounded-2xl h-96 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-6xl mb-4">🏭</div>
+              <p class="text-gray-500 font-semibold">Imagen de la empresa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Valores */}
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Nuestros Valores</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">✅</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Calidad</h3>
+            <p class="text-gray-600">
+              Productos de las mejores marcas. Garantía extendida y servicio técnico profesional.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">🤝</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Confianza</h3>
+            <p class="text-gray-600">
+              Relaciones de largo plazo con nuestros clientes. Transparencia en precios y términos.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Rapidez</h3>
+            <p class="text-gray-600">
+              Entregas ágiles. Respuesta inmediata a consultas. Atención personalizada siempre.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">¿Querés conocer más?</h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Estamos disponibles para consultas personalizadas. Contactanos por WhatsApp o visitanos en nuestras oficinas.
+        </p>
+        <a 
+          href="https://wa.me/5491100000000?text=Hola, quiero conocer más sobre Metalúrgica Pipo..."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-bergner-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-colors"
+        >
+          Contactanos Ahora
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,59 @@
+---
+// src/components/CategoryGrid.astro
+
+interface Category {
+  id: string;
+  name: string;
+  icon: string;
+  slug: string;
+}
+
+const categories: Category[] = [
+  { id: '1', name: 'Ollas', icon: '🍲', slug: 'ollas' },
+  { id: '2', name: 'Sartenes', icon: '🍳', slug: 'sartenes' },
+  { id: '3', name: 'Cubiertos', icon: '🥄', slug: 'cubiertos' },
+  { id: '4', name: 'Electro Cocina', icon: '⚡', slug: 'electro' },
+  { id: '5', name: 'Accesorios', icon: '🔧', slug: 'accesorios' },
+  { id: '6', name: 'Baterías de Cocina', icon: '🔲', slug: 'baterias' },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <span class="inline-block text-bergner-red font-semibold text-sm uppercase tracking-widest mb-4">
+        Explora por Categoría
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Nuestros Productos
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+        Una amplia selección de equipamiento gastronómico profesional para tu cocina
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      {categories.map((category) => (
+        <a 
+          href={`/productos?categoria=${category.slug}`}
+          class="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center hover:from-bergner-red/5 hover:to-bergner-red/10 transition-all duration-300 border border-gray-200 hover:border-bergner-red/30"
+        >
+          {/* Efecto de fondo */}
+          <div class="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10">
+            <div class="text-5xl mb-4">{category.icon}</div>
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-bergner-red transition-colors">
+              {category.name}
+            </h3>
+            <p class="text-gray-500 text-sm mt-2 group-hover:text-gray-600">
+              Ver productos
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

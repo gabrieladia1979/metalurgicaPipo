@@ -1,0 +1,112 @@
+---
+// src/pages/productos.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos de ejemplo - reemplazar con datos de CMS o BD
+const productos = [
+  {
+    id: 1,
+    title: 'Olla Profesional Inox 20cm',
+    category: 'Ollas',
+    description: 'Olla de acero inoxidable 18/10. Ideal para cocción uniforme y profesional.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa la Olla Profesional Inox 20cm. ¿Cuál es el precio y disponibilidad?'
+  },
+  {
+    id: 2,
+    title: 'Sartén Antiadherente Bergner',
+    category: 'Sartenes',
+    description: 'Sartén con revestimiento antiadherente premium. Excelente distribución de calor.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa la Sartén Antiadherente Bergner. ¿Cuál es el precio y disponibilidad?'
+  },
+  {
+    id: 3,
+    title: 'Set de Cubiertos Profesionales',
+    category: 'Cubiertos',
+    description: 'Juego completo de 24 cubiertos de acero inoxidable. Diseño elegante y duradero.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa el Set de Cubiertos Profesionales. ¿Cuál es el precio y disponibilidad?'
+  },
+  {
+    id: 4,
+    title: 'Olla a Presión Industrial',
+    category: 'Ollas',
+    description: 'Olla a presión de acero inoxidable para cocina profesional. Segura y eficiente.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa la Olla a Presión Industrial. ¿Cuál es el precio y disponibilidad?'
+  },
+  {
+    id: 5,
+    title: 'Batería de Cocina 10 Piezas',
+    category: 'Baterías de Cocina',
+    description: 'Set completo de ollas y sartenes. Todo lo que necesitas para tu cocina.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa la Batería de Cocina 10 Piezas. ¿Cuál es el precio y disponibilidad?'
+  },
+  {
+    id: 6,
+    title: 'Tabla de Corte Profesional',
+    category: 'Accesorios',
+    description: 'Tabla de polietileno. Resistente y fácil de limpiar. Ideal para kitchens profesionales.',
+    image: '',
+    whatsappMessage: 'Hola, me interesa la Tabla de Corte Profesional. ¿Cuál es el precio y disponibilidad?'
+  },
+];
+---
+
+<Layout title="Productos">
+  <Header />
+  
+  <main class="min-h-screen bg-white">
+    {/* Encabezado */}
+    <div class="bg-gradient-to-b from-gray-50 to-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Catálogo de Productos
+        </h1>
+        <p class="text-lg text-gray-600">
+          Explora nuestra amplia selección de equipamiento gastronómico profesional
+        </p>
+      </div>
+    </div>
+
+    {/* Productos Grid */}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {productos.map((producto) => (
+          <ProductCard
+            title={producto.title}
+            category={producto.category}
+            description={producto.description}
+            image={producto.image}
+            whatsappMessage={producto.whatsappMessage}
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* CTA Final */}
+    <section class="bg-bergner-red text-white py-16 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿No encontraste lo que buscas?</h2>
+        <p class="text-lg mb-8 opacity-90">
+          Contáctanos para consultar por otros productos o realizar un pedido personalizado.
+        </p>
+        <a 
+          href="https://wa.me/5491100000000?text=Hola, tengo una consulta sobre productos Bergner que no están en el catálogo..."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-white text-bergner-red hover:bg-gray-100 px-8 py-4 rounded-lg font-bold transition-colors"
+        >
+          Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,90 @@
+---
+// src/components/Header.astro
+---
+
+<header class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    {/* Logo */}
+    <div class="flex-shrink-0">
+      <a href="/" class="text-2xl font-bold text-bergner-red">
+        BERGNER
+      </a>
+      <p class="text-xs text-gray-500">Metalúrgica Pipo</p>
+    </div>
+
+    {/* Menú Desktop */}
+    <nav class="hidden md:flex gap-8">
+      <a href="/" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Inicio
+      </a>
+      <a href="/productos" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Productos
+      </a>
+      <a href="/nosotros" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Nosotros
+      </a>
+      <a href="/contacto" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Contacto
+      </a>
+    </nav>
+
+    {/* CTA Button + Mobile Menu */}
+    <div class="flex items-center gap-4">
+      <a 
+        href="https://wa.me/5491100000000?text=Hola, quiero solicitar una cotización..."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:block bg-bergner-red hover:bg-red-700 text-white px-5 py-2 rounded-lg font-medium transition-colors text-sm"
+      >
+        Cotización
+      </a>
+
+      {/* Hamburger Menu (Mobile) */}
+      <button 
+        id="mobile-menu-toggle"
+        class="md:hidden flex flex-col gap-1.5 cursor-pointer"
+        aria-label="Menú móvil"
+      >
+        <span class="w-6 h-0.5 bg-gray-800 block transition-all"></span>
+        <span class="w-6 h-0.5 bg-gray-800 block transition-all"></span>
+        <span class="w-6 h-0.5 bg-gray-800 block transition-all"></span>
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu */}
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+    <nav class="flex flex-col py-4 px-4">
+      <a href="/" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Inicio
+      </a>
+      <a href="/productos" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Productos
+      </a>
+      <a href="/nosotros" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Nosotros
+      </a>
+      <a href="/contacto" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        Contacto
+      </a>
+      <a 
+        href="https://wa.me/5491100000000?text=Hola, quiero solicitar una cotización..."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 bg-bergner-red hover:bg-red-700 text-white px-5 py-2 rounded-lg font-medium transition-colors text-center"
+      >
+        Cotización
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggleButton = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

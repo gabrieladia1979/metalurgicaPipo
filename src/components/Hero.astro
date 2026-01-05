@@ -1,0 +1,79 @@
+---
+// src/components/Hero.astro
+---
+
+<section class="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden min-h-screen flex items-center">
+  
+  {/* Fondo decorativo */}
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-bergner-red/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-bergner-red/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      
+      {/* Contenido */}
+      <div>
+        <span class="inline-block text-bergner-red font-semibold text-sm uppercase tracking-widest mb-4">
+          Distribuidores Oficiales Bergner
+        </span>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          Calidad Profesional en tu Cocina
+        </h1>
+        
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+          Equipamiento gastronómico de alta gama. Acero inoxidable 18/10, diseño innovador y durabilidad garantizada. Productos certificados para cocina profesional y hogares exigentes.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="/productos"
+            class="inline-flex items-center justify-center bg-bergner-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-colors text-lg"
+          >
+            Ver Catálogo 2026
+          </a>
+          
+          <a 
+            href="https://wa.me/5491100000000?text=Hola, me gustaría obtener más información sobre sus productos..."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center border-2 border-bergner-red text-bergner-red hover:bg-bergner-red hover:text-white px-8 py-4 rounded-lg font-bold transition-all text-lg"
+          >
+            Contactar por WhatsApp
+          </a>
+        </div>
+
+        <div class="mt-12 flex gap-8 text-sm">
+          <div>
+            <p class="text-2xl font-bold text-bergner-red">+50</p>
+            <p class="text-gray-600">Productos en Catálogo</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-bergner-red">25+</p>
+            <p class="text-gray-600">Años de Trayectoria</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-bergner-red">1000+</p>
+            <p class="text-gray-600">Clientes Satisfechos</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Imagen/Placeholder */}
+      <div class="relative h-96 md:h-full min-h-96">
+        <div class="absolute inset-0 bg-gradient-to-br from-bergner-red/10 to-bergner-red/5 rounded-2xl flex items-center justify-center">
+          <div class="text-center">
+            <svg class="w-32 h-32 text-bergner-red/30 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2 1m2-1l-2-1m2 1v2.5"></path>
+            </svg>
+            <p class="text-gray-500 text-lg font-semibold">Imagen de Productos</p>
+            <p class="text-gray-400 text-sm">(Reemplazar con foto de cocina)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
