@@ -1,0 +1,100 @@
+---
+// src/components/Services.astro
+
+const services = [
+  {
+    title: "Mecanizado CNC",
+    description: "Tornería y fresado de alta precisión para piezas complejas y series de producción.",
+    icon: "precision_manufacturing" 
+  },
+  {
+    title: "Reparación de Válvulas",
+    description: "Mantenimiento y rectificación de válvulas industriales bajo normas de seguridad.",
+    icon: "build" 
+  },
+  {
+    title: "Soldadura Especializada",
+    description: "Procesos TIG/MIG para acero inoxidable, aluminio y aleaciones especiales.",
+    icon: "waves"
+  },
+  {
+    title: "Desarrollo de Prototipos",
+    description: "Ingeniería inversa y fabricación de piezas únicas según muestra o plano.",
+    icon: "engineering"
+  }
+];
+---
+
+<section id="servicios" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-bergner-red mb-4">
+        Nuestros Servicios
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+        Soluciones metalúrgicas integrales adaptadas a las necesidades de la industria moderna.
+      </p>
+    </div>
+
+    {/* Featured Service Section */}
+    <div class="mb-20 bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
+        <div>
+          <h3 class="text-2xl md:text-3xl font-bold text-bergner-red mb-6">
+            Reparación de Válvulas y Mantenimiento de Compresores
+          </h3>
+          
+          <div class="space-y-4 text-gray-700 mb-8">
+            <p class="font-semibold text-lg">Ofrecemos el servicio de reparación de válvulas, recuperando las piezas principales (tapas y asientos) reemplazando la totalidad de los repuestos de desgaste (discos, amortiguadores y resortes).</p>
+            
+            <div>
+              <h4 class="font-bold text-bergner-red mb-3">SERVICIO DE REPARACIÓN DE VÁLVULAS:</h4>
+              <ul class="space-y-2 text-sm">
+                <li>✓ Desarme y limpieza de las válvulas</li>
+                <li>✓ Los asientos y tapas son sometidos a un proceso de blasting</li>
+                <li>✓ Se retiran los componentes internos consumibles, membranas, platillos y resortes</li>
+                <li>✓ Proceso de mecanizado para los asientos y tapas bajo las especificaciones originales de tolerancia, paralelismo y planitud</li>
+                <li>✓ Montaje de las válvulas, reemplazando la totalidad de sus componentes internos por piezas nuevas</li>
+                <li>✓ Se realizan pruebas de estanqueidad y funcionamiento, luego son embaladas para su despacho</li>
+              </ul>
+            </div>
+
+            <p class="text-sm italic text-gray-600">El proceso se realiza en siete días, aunque en caso de urgencia el plazo puede reducirse a dos días.</p>
+
+            <div>
+              <h4 class="font-bold text-bergner-red mt-6 mb-3">SERVICIO DE MANTENIMIENTO DE COMPRESORES:</h4>
+              <p class="text-sm">Metalúrgica Bergner también ofrece el servicio para el mantenimiento de cualquier tipo de compresores a pistón.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+          <img src="/docs/valvulas.jpg" alt="Reparación de válvulas" class="w-full h-auto rounded-lg shadow-md" />
+        </div>
+      </div>
+    </div>
+
+    {/* Services Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service) => (
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+          
+          <div class="w-14 h-14 rounded-lg bg-bergner-red/10 flex items-center justify-center mb-6 group-hover:bg-bergner-red transition-colors duration-300">
+            <span class="material-symbols-outlined text-3xl text-bergner-red group-hover:text-white transition-colors">
+              {service.icon}
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-bergner-red transition-colors">
+            {service.title}
+          </h3>
+          
+          <p class="text-gray-600 leading-relaxed text-sm">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

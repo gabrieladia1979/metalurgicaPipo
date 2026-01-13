@@ -13,9 +13,10 @@ const { partNumber, name, specs, image, inStock = false, pdf } = Astro.props;
 import site from '../data/site.json';
 const whatsappNumber = site.whatsappNumber || '5491100000000';
 const whatsappMessage = `Hola, consulto por el repuesto código ${partNumber}: ${name}`;
+const specsText = Object.values(specs).join(' ');
 ---
 
-<div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col h-full">
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col h-full" data-title={name} data-category="Repuestos" data-description={`${partNumber} ${name} ${specsText}`}>
   <div class="bg-gray-50 px-4 py-2 border-b flex justify-between items-center">
     <span class="text-xs font-mono font-bold text-gray-700">COD: {partNumber}</span>
     <span class={`text-xs font-semibold px-2 py-0.5 rounded ${inStock? 'text-emerald-800 bg-emerald-100' : 'text-gray-600 bg-gray-100'}`}>
