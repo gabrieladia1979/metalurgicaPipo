@@ -1,9 +1,27 @@
 ---
 import site from '../data/site.json';
 // src/components/Footer.astro
+
+// Detectar idioma actual
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+const langPrefix = isEnglish ? '/en' : '';
+
+// Textos por idioma
+const footerTexts = {
+  navegacion: isEnglish ? 'Navigation' : 'Navegación',
+  inicio: isEnglish ? 'Home' : 'Inicio',
+  productos: isEnglish ? 'Products' : 'Productos',
+  nosotros: isEnglish ? 'About' : 'Nosotros',
+  contacto: isEnglish ? 'Contact' : 'Contacto',
+  contactoTitle: isEnglish ? 'Contact' : 'Contacto',
+  privacidad: isEnglish ? 'Privacy Policy' : 'Política de Privacidad',
+  terminos: isEnglish ? 'Terms of Service' : 'Términos de Servicio',
+  derechos: isEnglish ? 'All rights reserved.' : 'Todos los derechos reservados.',
+};
 ---
 
-<footer class="bg-gray-900 text-white py-16">
+<footer class="w-full bg-gray-900 text-white py-16 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="grid md:grid-cols-4 gap-12 mb-12">
@@ -18,18 +36,18 @@ import site from '../data/site.json';
 
       {/* Links */}
       <div>
-        <h4 class="font-bold mb-6 text-white">Navegación</h4>
+        <h4 class="font-bold mb-6 text-white">{footerTexts.navegacion}</h4>
         <ul class="space-y-3 text-sm">
-          <li><a href="/" class="text-gray-400 hover:text-bergner-red transition-colors">Inicio</a></li>
-          <li><a href="/productos" class="text-gray-400 hover:text-bergner-red transition-colors">Productos</a></li>
-          <li><a href="/nosotros" class="text-gray-400 hover:text-bergner-red transition-colors">Nosotros</a></li>
-          <li><a href="/contacto" class="text-gray-400 hover:text-bergner-red transition-colors">Contacto</a></li>
+          <li><a href={`${langPrefix}/`} class="text-gray-400 hover:text-bergner-red transition-colors">{footerTexts.inicio}</a></li>
+          <li><a href={`${langPrefix}/productos`} class="text-gray-400 hover:text-bergner-red transition-colors">{footerTexts.productos}</a></li>
+          <li><a href={`${langPrefix}/nosotros`} class="text-gray-400 hover:text-bergner-red transition-colors">{footerTexts.nosotros}</a></li>
+          <li><a href={`${langPrefix}/contacto`} class="text-gray-400 hover:text-bergner-red transition-colors">{footerTexts.contacto}</a></li>
         </ul>
       </div>
 
       {/* Contacto */}
       <div>
-        <h4 class="font-bold mb-6 text-white">Contacto</h4>
+        <h4 class="font-bold mb-6 text-white">{footerTexts.contactoTitle}</h4>
         <ul class="space-y-3 text-sm text-gray-400">
           <li>📍 Buenos Aires, Argentina</li>
           <li>📞 +54 9 11 0000-0000</li>
@@ -58,10 +76,10 @@ import site from '../data/site.json';
 
     <div class="border-t border-gray-800 pt-8">
       <div class="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-        <p>&copy; 2026 Metalúrgica Pipo. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Metalúrgica Pipo. {footerTexts.derechos}</p>
         <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="#" class="hover:text-bergner-red transition-colors">Política de Privacidad</a>
-          <a href="#" class="hover:text-bergner-red transition-colors">Términos de Servicio</a>
+          <a href="#" class="hover:text-bergner-red transition-colors">{footerTexts.privacidad}</a>
+          <a href="#" class="hover:text-bergner-red transition-colors">{footerTexts.terminos}</a>
         </div>
       </div>
     </div>

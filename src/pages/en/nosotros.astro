@@ -1,12 +1,12 @@
 ---
-// src/pages/nosotros.astro
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import site from '../data/site.json';
+// src/pages/en/nosotros.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import site from '../../data/site.json';
 ---
 
-<Layout title="Nosotros">
+<Layout title="About Us">
   <Header />
   
   <main class="min-h-screen bg-white">
@@ -14,64 +14,64 @@ import site from '../data/site.json';
     <section class="bg-gradient-to-b from-gray-50 to-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Sobre Nosotros
+          About Us
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl">
-          Más de 25 años distribuyendo equipamiento gastronómico de calidad
+          Over 25 years distributing quality gastronomic equipment
         </p>
       </div>
     </section>
 
-    {/* Historia */}
+    {/* History */}
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Our History</h2>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              Metalúrgica Pipo nace en los '90s como distribuidora oficial de marcas líderes en equipamiento gastronómico. Comenzamos con una pequeña oficina en Buenos Aires y hoy somos referentes en la venta de productos Bergner.
+              Metalúrgica Pipo was founded in the 90s as an official distributor of leading brands in gastronomic equipment. We started with a small office in Buenos Aires and today we are leaders in the sale of Bergner products.
             </p>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              Nuestra misión es proporcionar a chefs profesionales, restaurantes y hogares exigentes, equipamiento de la más alta calidad, con garantía y servicio técnico especializado.
+              Our mission is to provide professional chefs, restaurants and demanding homes with the highest quality equipment, with warranty and specialized technical service.
             </p>
             <p class="text-gray-600 leading-relaxed">
-              Cada producto que vendemos es seleccionado cuidadosamente para asegurar que cumple con los más altos estándares de durabilidad y rendimiento.
+              Every product we sell is carefully selected to ensure it meets the highest standards of durability and performance.
             </p>
           </div>
           <div class="bg-gradient-to-br from-bergner-red/10 to-bergner-red/5 rounded-2xl h-96 flex items-center justify-center">
             <div class="text-center">
               <div class="text-6xl mb-4">🏭</div>
-              <p class="text-gray-500 font-semibold">Imagen de la empresa</p>
+              <p class="text-gray-500 font-semibold">Company Image</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* Valores */}
+    {/* Values */}
     <section class="bg-gray-50 py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Nuestros Valores</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Values</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
             <div class="text-4xl mb-4">✅</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Calidad</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Quality</h3>
             <p class="text-gray-600">
-              Productos de las mejores marcas. Garantía extendida y servicio técnico profesional.
+              Products from the best brands. Extended warranty and professional technical service.
             </p>
           </div>
           <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
             <div class="text-4xl mb-4">🤝</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Confianza</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Trust</h3>
             <p class="text-gray-600">
-              Relaciones de largo plazo con nuestros clientes. Transparencia en precios y términos.
+              Long-term relationships with our customers. Transparency in prices and terms.
             </p>
           </div>
           <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
             <div class="text-4xl mb-4">⚡</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Rapidez</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Speed</h3>
             <p class="text-gray-600">
-              Entregas ágiles. Respuesta inmediata a consultas. Atención personalizada siempre.
+              Quick deliveries. Immediate response to inquiries. Personalized attention always.
             </p>
           </div>
         </div>
@@ -81,17 +81,17 @@ import site from '../data/site.json';
     {/* CTA */}
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">¿Querés conocer más?</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Want to know more?</h2>
         <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-          Estamos disponibles para consultas personalizadas. Contactanos por WhatsApp o visitanos en nuestras oficinas.
+          We're available for personalized consultations. Contact us via WhatsApp or visit our offices.
         </p>
         <a 
-          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero conocer más sobre Metalúrgica Pipo...')}`}
+          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello, I want to learn more about Metalúrgica Pipo...')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-bergner-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-colors"
         >
-          Contactanos Ahora
+          Contact Us Now
         </a>
       </div>
     </section>

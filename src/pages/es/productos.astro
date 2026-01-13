@@ -1,0 +1,86 @@
+---
+// src/pages/es/productos.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import IndustrialPartCard from '../../components/IndustrialPartCard.astro';
+import ProductTable from '../../components/ProductTable.astro';
+import Footer from '../../components/Footer.astro';
+import site from '../../data/site.json';
+
+// Datos de ejemplo - reemplazar con datos de CMS o BD
+const productos = [
+  {
+    id: 1,
+    partNumber: '450-12',
+    title: 'Válvula Concéntrica Modelo 450',
+    category: 'Válvulas',
+    description: 'Válvula para compresores, cuerpo en acero al carbono.',
+    image: '',
+    inStock: true,
+    pdf: '/docs/valvula-450.pdf',
+    specs: { 'Material': 'Acero', 'Diámetro': '40 mm', 'Presión': '200 Bar' }
+  },
+  {
+    id: 2,
+    partNumber: 'A-210',
+    title: 'Aro de Ajuste A-210',
+    category: 'Aros',
+    description: 'Aro de retención para ejes rotativos.',
+    image: '',
+    inStock: false,
+    pdf: '',
+    specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
+  },
+  {
+    id: 3,
+    partNumber: 'EMP-03',
+    title: 'Empaquetadura Tipo 03',
+    category: 'Empaquetaduras',
+    description: 'Empaquetadura para sellado de válvulas y bombas.',
+    image: '',
+    inStock: true,
+    pdf: '/docs/empaquetadura-03.pdf',
+    specs: { 'Material': 'Grafito', 'Temperatura': '-50°C a 400°C' }
+  },
+];
+---
+
+<Layout title="Productos">
+  <Header />
+
+  <main>
+    {/* Hero */}
+    <section class="bg-gradient-to-b from-gray-50 to-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Productos
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl">
+          Catálogo completo de piezas y repuestos industriales de la más alta calidad.
+        </p>
+      </div>
+    </section>
+
+    {/* Tabla de Productos */}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProductTable productos={productos} />
+      </div>
+    </section>
+
+    {/* Grid de Tarjetas */}
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12">Catálogo Detallado</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {productos.map((prod) => (
+            <ProductCard producto={prod} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

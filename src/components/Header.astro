@@ -1,6 +1,38 @@
 ---
 import site from '../data/site.json';
 // src/components/Header.astro
+
+// Obtenemos la URL actual para saber en qué idioma estamos
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+
+// Definir el prefijo de idioma
+const langPrefix = isEnglish ? '/en' : '';
+
+// Calcular la URL del otro idioma
+const getOtherLanguagePath = (path: string): string => {
+  if (isEnglish) {
+    // Pasar de /en/xxx a /xxx
+    return path.replace(/^\/en/, '') || '/';
+  } else {
+    // Pasar de /xxx a /en/xxx
+    return path === '/' ? '/en' : `/en${path}`;
+  }
+};
+
+const otherLanguagePath = getOtherLanguagePath(currentPath);
+
+// Textos dinámicos por idioma
+const texts = {
+  inicio: isEnglish ? 'Home' : 'Inicio',
+  servicios: isEnglish ? 'Services' : 'Servicios',
+  productos: isEnglish ? 'Products' : 'Productos',
+  nosotros: isEnglish ? 'About' : 'Nosotros',
+  contacto: isEnglish ? 'Contact' : 'Contacto',
+  buscar: isEnglish ? 'Search by code or model' : 'Buscar por código o modelo',
+  cotizacion: isEnglish ? 'Quote' : 'Cotización',
+  hola: isEnglish ? 'Hello, I want to request a quote...' : 'Hola, quiero solicitar una cotización...',
+};
 ---
 
 <header class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
@@ -16,42 +48,62 @@ import site from '../data/site.json';
       </div>
 
       <!-- Search (Desktop) -->
-      <form action="/productos" method="GET" class="hidden md:flex flex-1">
-        <label for="q" class="sr-only">Buscar por código o modelo</label>
+      <form action={`${langPrefix}/productos`} method="GET" class="hidden md:flex flex-1">
+        <label for="q" class="sr-only">{texts.buscar}</label>
         <div class="relative w-full">
-          <input id="header-search-input" name="q" type="search" placeholder="Buscar por código o modelo (ej: 450-12)" class="w-full border border-gray-300 rounded-lg py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-bergner-red/50 bg-white text-sm" />
-          <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 bg-bergner-red text-white px-3 py-2 rounded text-sm">Buscar</button>
+          <input id="header-search-input" name="q" type="search" placeholder={`${texts.buscar} (ej: 450-12)`} class="w-full border border-gray-300 rounded-lg py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-bergner-red/50 bg-white text-sm" />
+          <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 bg-bergner-red text-white px-3 py-2 rounded text-sm">{isEnglish ? 'Search' : 'Buscar'}</button>
         </div>
       </form>
 
       {/* Menú Desktop */}
       <nav class="hidden md:flex gap-8">
-        <a href="/" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
-          Inicio
+        <a href={`${langPrefix}/`} class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+          {texts.inicio}
         </a>
-        <a href="/servicios" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
-          Servicios
+        <a href={`${langPrefix}/servicios`} class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+          {texts.servicios}
         </a>
-        <a href="/productos" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
-          Productos
+        <a href={`${langPrefix}/productos`} class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+          {texts.productos}
         </a>
-        <a href="/nosotros" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
-          Nosotros
+        <a href={`${langPrefix}/nosotros`} class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+          {texts.nosotros}
         </a>
-        <a href="/contacto" class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
-          Contacto
+        <a href={`${langPrefix}/contacto`} class="text-gray-700 hover:text-bergner-red transition-colors font-medium">
+          {texts.contacto}
         </a>
       </nav>
 
-    {/* CTA Button + Mobile Menu */}
-    <div class="flex items-center gap-4">
+    {/* CTA Button + Language + Mobile Menu */}
+    <div class="flex items-center gap-3">
+      {/* Language Switcher */}
       <a 
-        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero solicitar una cotización...')}`}
+        href={otherLanguagePath} 
+        class="flex items-center gap-1.5 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700 hidden sm:flex"
+        aria-label={isEnglish ? "Cambiar a Español" : "Switch to English"}
+        title={isEnglish ? "Cambiar a Español" : "Switch to English"}
+      >
+        {isEnglish ? (
+          <>
+            <span>🇪🇸</span>
+            <span>ES</span>
+          </>
+        ) : (
+          <>
+            <span>🇺🇸</span>
+            <span>EN</span>
+          </>
+        )}
+      </a>
+
+      <a 
+        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(texts.hola)}`}
         target="_blank"
         rel="noopener noreferrer"
         class="hidden sm:block bg-bergner-red hover:bg-red-700 text-white px-5 py-2 rounded-lg font-medium transition-colors text-sm"
       >
-        Cotización
+        {texts.cotizacion}
       </a>
 
       {/* Hamburger Menu (Mobile) */}
@@ -70,28 +122,28 @@ import site from '../data/site.json';
   {/* Mobile Menu */}
   <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
     <nav class="flex flex-col py-4 px-4">
-      <a href="/" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
-        Inicio
+      <a href={`${langPrefix}/`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        {texts.inicio}
       </a>
-      <a href="/servicios" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
-        Servicios
+      <a href={`${langPrefix}/servicios`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        {texts.servicios}
       </a>
-      <a href="/productos" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
-        Productos
+      <a href={`${langPrefix}/productos`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        {texts.productos}
       </a>
-      <a href="/nosotros" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
-        Nosotros
+      <a href={`${langPrefix}/nosotros`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        {texts.nosotros}
       </a>
-      <a href="/contacto" class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
-        Contacto
+      <a href={`${langPrefix}/contacto`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
+        {texts.contacto}
       </a>
       <a 
-        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero solicitar una cotización...')}`}
+        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(texts.hola)}`}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-4 bg-bergner-red hover:bg-red-700 text-white px-5 py-2 rounded-lg font-medium transition-colors text-center"
       >
-        Cotización
+        {texts.cotizacion}
       </a>
     </nav>
   </div>

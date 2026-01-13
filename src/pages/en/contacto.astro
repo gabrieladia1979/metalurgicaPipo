@@ -1,0 +1,243 @@
+---
+// src/pages/en/contacto.astro
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import site from '../../data/site.json';
+---
+
+<Layout title="Contact">
+  <Header />
+  
+  <main class="min-h-screen bg-white">
+    {/* Hero */}
+    <section class="bg-gradient-to-b from-gray-50 to-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Contact
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl">
+          We're here to help. Get in touch with us in the way that works best for you.
+        </p>
+      </div>
+    </section>
+
+    {/* Content */}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12">
+          
+          {/* Contact Information */}
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            
+            <div class="space-y-8">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
+                    <span class="text-2xl">📍</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Address</h3>
+                  <p class="text-gray-600">
+                    Av. Corrientes 1234<br/>
+                    Buenos Aires, Argentina 1043
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
+                    <span class="text-2xl">📞</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Phone</h3>
+                  <p class="text-gray-600">+54 9 11 0000-0000</p>
+                  <p class="text-gray-500 text-sm">Monday to Friday, 9:00 - 18:00</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
+                    <span class="text-2xl">📧</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Email</h3>
+                  <p class="text-gray-600">contacto@metalurgicapipo.com.ar</p>
+                  <p class="text-gray-500 text-sm">Response within 24 hours</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-green-600/10 rounded-lg flex items-center justify-center">
+                    <span class="text-2xl">💬</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">WhatsApp</h3>
+                  <p class="text-gray-600 mb-2">+54 9 11 0000-0000</p>
+                  <a 
+                    href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello, I want to inquire...')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                  >
+                    Open WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Networks */}
+            <div class="mt-12 pt-8 border-t border-gray-200">
+              <h3 class="font-bold text-gray-900 mb-4">Follow Us</h3>
+              <div class="flex gap-4">
+                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
+                  f
+                </a>
+                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
+                  📷
+                </a>
+                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
+                  🎥
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+            
+            <form class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">
+                  Phone
+                </label>
+                <input 
+                  type="tel" 
+                  id="telefono" 
+                  name="telefono"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
+                  placeholder="+54 9 11 0000-0000"
+                />
+              </div>
+
+              <div>
+                <label for="asunto" class="block text-sm font-medium text-gray-700 mb-2">
+                  Subject
+                </label>
+                <input 
+                  type="text" 
+                  id="asunto" 
+                  name="asunto"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
+                  placeholder="How can we help?"
+                />
+              </div>
+
+              <div>
+                <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea 
+                  id="mensaje" 
+                  name="mensaje"
+                  required
+                  rows="5"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red resize-none"
+                  placeholder="Tell us more about your inquiry..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit"
+                class="w-full bg-bergner-red hover:bg-red-700 text-white py-3 px-6 rounded-lg font-bold transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+
+            <p class="text-sm text-gray-500 text-center mt-4">
+              You can also contact us directly via WhatsApp for a faster response.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {/* Map */}
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Location</h2>
+        <div class="rounded-xl overflow-hidden shadow-lg h-96 bg-gray-200 flex items-center justify-center">
+          <p class="text-gray-500 font-semibold">Interactive map (integrate with Google Maps)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads: Catalog and Technical Sheets -->
+    <section class="py-12 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Downloads</h2>
+        <p class="text-gray-600 mb-6">Download catalogs and technical sheets in PDF for your repairs and inquiries.</p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="/docs/valvula-450.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+            <div>
+              <p class="font-semibold text-gray-900">Technical Sheet – Valve Model 450</p>
+              <p class="text-sm text-gray-500">Material, dimensions and pressure specifications.</p>
+            </div>
+            <div class="text-sm text-bergner-red font-medium">Download</div>
+          </a>
+
+          <a href="/docs/empaquetadura-03.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+            <div>
+              <p class="font-semibold text-gray-900">Technical Sheet – Packing Type 03</p>
+              <p class="text-sm text-gray-500">Temperature ranges and recommended applications.</p>
+            </div>
+            <div class="text-sm text-bergner-red font-medium">Download</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
