@@ -6,10 +6,14 @@ interface Props {
 const { title } = Astro.props;
 import '../styles/global.css';
 import site from '../data/site.json';
+
+// Detect current language from URL
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +22,7 @@ import site from '../data/site.json';
     <title>{title} | Metalúrgica Pipo</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
-  <body class="bg-white">
+  <body class="bg-white flex flex-col min-h-screen">
     <slot />
     
     <!-- Botón flotante WhatsApp -->
