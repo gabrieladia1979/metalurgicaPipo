@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const marcas = [
+  "ABC", "Atelier François", "Bellis & Morcom", "SIAD", "AJAX", "LMF", 
+  "ARIEL", "Nuovo Pignone", "Ingersoll Rand", "Atlas Copco", 
+  "Mitsui", "Joy", "Sabroe", "Mycom"
+];
+
+const clientes = [
+  "Pampa Energía", "YPF", "Galileo", "Sector PET (embotelladoras)", 
+  "Industria química y petroquímica", "Plantas de compresión de gas"
+];
+---
+
+<Layout title="Marcas de Compresores y Clientes" description="Experiencia con marcas líderes y empresas de energía, petróleo, gas y PET.">
+  <Header />
+  
+  <main class="min-h-screen bg-white">
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">Nuestra Experiencia</h1>
+        
+        <div class="grid md:grid-cols-2 gap-16">
+          {/* Marcas */}
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Marcas de Compresores</h2>
+            <p class="text-gray-600 mb-6">Trabajamos con las principales marcas del mercado:</p>
+            <ul class="grid grid-cols-2 gap-4">
+              {marcas.map(marca => (
+                <li class="flex items-center gap-2 text-gray-700 font-medium">
+                  <span class="text-bergner-red">▪</span> {marca}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Clientes */}
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Empresas Clientes</h2>
+            <p class="text-gray-600 mb-6">Confían en nosotros:</p>
+            <ul class="space-y-4">
+              {clientes.map(cliente => (
+                <li class="flex items-center gap-3 text-lg text-gray-700">
+                  <span class="text-green-600">✓</span> {cliente}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

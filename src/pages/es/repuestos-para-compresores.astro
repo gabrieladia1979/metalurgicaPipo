@@ -1,5 +1,5 @@
 ---
-// src/pages/es/productos.astro
+// src/pages/es/repuestos-para-compresores.astro
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ProductCard from '../../components/ProductCard.astro';
@@ -8,7 +8,7 @@ import ProductTable from '../../components/ProductTable.astro';
 import Footer from '../../components/Footer.astro';
 import site from '../../data/site.json';
 
-// Datos de ejemplo - reemplazar con datos de CMS o BD
+// Datos de ejemplo
 const productos = [
   {
     id: 1,
@@ -28,9 +28,7 @@ const productos = [
     category: 'Aros',
     description: 'Aro de retención para ejes rotativos.',
     image: '/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg',
-    inStock: true, // Si hay foto, asumimos stock o dejamos como estaba
-    pdf: null,
-    inStock: false,
+    inStock: true,
     pdf: '',
     specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
   },
@@ -48,7 +46,7 @@ const productos = [
 ];
 ---
 
-<Layout title="Productos | Repuestos para Compresores a Pistón" description="Válvulas, empaquetaduras, aros, juntas y mecanizado de piezas especiales.">
+<Layout title="Repuestos para Compresores | Bergner S.A." description="Fabricamos repuestos metalmecánicos para compresores a pistón de todas las marcas. Calidad garantizada.">
   <Header />
 
   <main class="min-h-screen bg-white">
@@ -56,10 +54,10 @@ const productos = [
     <div class="bg-gradient-to-b from-gray-50 to-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Catálogo de Productos
+          Repuestos para Compresores
         </h1>
         <p class="text-lg text-gray-600">
-          Explore nuestra amplia selección de equipamiento industrial profesional
+          Componentes de alta calidad para compresores alternativos
         </p>
       </div>
     </div>
@@ -103,7 +101,7 @@ const productos = [
           Contáctenos para consultar por otros productos o realizar un pedido a medida.
         </p>
         <a 
-          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, tengo una consulta sobre productos Bergner...')}`}
+          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, consultas de repuestos...')}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-white text-bergner-red hover:bg-gray-100 px-8 py-4 rounded-lg font-bold transition-colors"
@@ -146,10 +144,8 @@ const productos = [
       }
     }
 
-    // initial
     filter(q);
 
-    // listen for input on page
     if(pageInput){
       pageInput.addEventListener('input', (e)=>{
         const val = e.target.value;
@@ -159,7 +155,6 @@ const productos = [
       });
     }
 
-    // View toggle (grid / table)
     const btnGrid = document.getElementById('view-grid');
     const btnTable = document.getElementById('view-table');
     const gridEl = document.getElementById('products-grid');
@@ -169,19 +164,13 @@ const productos = [
       if(view==='table'){
         gridEl.classList.add('hidden');
         tableEl.classList.remove('hidden');
-        history.replaceState(null,'',`?view=table${pageInput?.value?`&q=${encodeURIComponent(pageInput.value)}`:''}`);
       } else {
         tableEl.classList.add('hidden');
         gridEl.classList.remove('hidden');
-        history.replaceState(null,'',`${location.pathname}${pageInput?.value?`?q=${encodeURIComponent(pageInput.value)}`:''}`);
       }
     }
 
     btnGrid?.addEventListener('click', ()=> setView('grid'));
     btnTable?.addEventListener('click', ()=> setView('table'));
-
-    // initialize view param
-    const viewParam = new URLSearchParams(location.search).get('view');
-    if(viewParam==='table') setView('table');
   })();
 </script>
