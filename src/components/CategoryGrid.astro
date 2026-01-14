@@ -13,29 +13,29 @@ const isEnglish = currentPath.startsWith('/en');
 const langPrefix = isEnglish ? '/en' : '/es';
 
 const categoriesES: Category[] = [
-  { id: '1', name: 'Ollas', icon: '🍲', slug: 'ollas' },
-  { id: '2', name: 'Sartenes', icon: '🍳', slug: 'sartenes' },
-  { id: '3', name: 'Cubiertos', icon: '🥄', slug: 'cubiertos' },
-  { id: '4', name: 'Electro Cocina', icon: '⚡', slug: 'electro' },
-  { id: '5', name: 'Accesorios', icon: '🔧', slug: 'accesorios' },
-  { id: '6', name: 'Baterías de Cocina', icon: '🔲', slug: 'baterias' },
+  { id: '1', name: 'Válvulas', icon: '⚙️', slug: 'valvulas' },
+  { id: '2', name: 'Compresores', icon: '🔋', slug: 'compresores' },
+  { id: '3', name: 'Repuestos', icon: '🔧', slug: 'repuestos' },
+  { id: '4', name: 'Mecanizado', icon: '🏗️', slug: 'mecanizado' },
+  { id: '5', name: 'Servicios', icon: '🛠️', slug: 'servicios' },
+  { id: '6', name: 'Proyectos', icon: '📋', slug: 'proyectos' },
 ];
 
 const categoriesEN: Category[] = [
-  { id: '1', name: 'Pots', icon: '🍲', slug: 'pots' },
-  { id: '2', name: 'Pans', icon: '🍳', slug: 'pans' },
-  { id: '3', name: 'Cutlery', icon: '🥄', slug: 'cutlery' },
-  { id: '4', name: 'Kitchen Electro', icon: '⚡', slug: 'electro' },
-  { id: '5', name: 'Accessories', icon: '🔧', slug: 'accessories' },
-  { id: '6', name: 'Cookware Sets', icon: '🔲', slug: 'cookware' },
+  { id: '1', name: 'Valves', icon: '⚙️', slug: 'valves' },
+  { id: '2', name: 'Compressors', icon: '🔋', slug: 'compressors' },
+  { id: '3', name: 'Spare Parts', icon: '🔧', slug: 'spares' },
+  { id: '4', name: 'Machining', icon: '🏗️', slug: 'machining' },
+  { id: '5', name: 'Services', icon: '🛠️', slug: 'services' },
+  { id: '6', name: 'Projects', icon: '📋', slug: 'projects' },
 ];
 
 const categories = isEnglish ? categoriesEN : categoriesES;
 
 const texts = {
   tag: isEnglish ? 'Explore by Category' : 'Explora por Categoría',
-  title: isEnglish ? 'Our Products' : 'Nuestros Productos',
-  subtitle: isEnglish ? 'A wide selection of professional gastronomic equipment for your kitchen' : 'Una amplia selección de equipamiento gastronómico profesional para tu cocina'
+  title: isEnglish ? 'Industrial Solutions' : 'Soluciones Industriales',
+  subtitle: isEnglish ? 'Top quality components and maintenance for the industry' : 'Componentes de máxima calidad y mantenimiento para la industria'
 };
 ---
 

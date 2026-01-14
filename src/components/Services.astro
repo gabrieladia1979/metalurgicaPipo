@@ -98,25 +98,58 @@ const txt = {
           </h3>
           
           <div class="space-y-4 text-gray-700 mb-8">
-            <p class="font-semibold text-lg">Ofrecemos el servicio de reparación de válvulas, recuperando las piezas principales (tapas y asientos) reemplazando la totalidad de los repuestos de desgaste (discos, amortiguadores y resortes).</p>
+            <p class="font-semibold text-lg">
+              {isEnglish 
+                ? 'We offer valve repair service, recovering main parts (covers and seats) and replacing all wear parts (discs, dampers and springs).'
+                : 'Ofrecemos el servicio de reparación de válvulas, recuperando las piezas principales (tapas y asientos) reemplazando la totalidad de los repuestos de desgaste (discos, amortiguadores y resortes).'}
+            </p>
             
             <div>
-              <h4 class="font-bold text-bergner-red mb-3">SERVICIO DE REPARACIÓN DE VÁLVULAS:</h4>
-              <ul class="space-y-2 text-sm">
-                <li>✓ Desarme y limpieza de las válvulas</li>
-                <li>✓ Los asientos y tapas son sometidos a un proceso de blasting</li>
-                <li>✓ Se retiran los componentes internos consumibles, membranas, platillos y resortes</li>
-                <li>✓ Proceso de mecanizado para los asientos y tapas bajo las especificaciones originales de tolerancia, paralelismo y planitud</li>
-                <li>✓ Montaje de las válvulas, reemplazando la totalidad de sus componentes internos por piezas nuevas</li>
-                <li>✓ Se realizan pruebas de estanqueidad y funcionamiento, luego son embaladas para su despacho</li>
+              <h4 class="font-bold text-bergner-red mb-3">
+                {isEnglish ? 'VALVE REPAIR SERVICE:' : 'SERVICIO DE REPARACIÓN DE VÁLVULAS:'}
+              </h4>
+              <p class="mb-2 text-sm">
+                {isEnglish 
+                  ? 'Our service is performed according to the following procedure ensuring reconditioned valves are totally equivalent to new ones in quality and lifespan:'
+                  : 'Nuestro servicio se realiza de acuerdo al siguiente procedimiento que asegura que las válvulas reacondicionadas sean totalmente equivalentes a las nuevas en calidad y vida útil:'}
+              </p>
+              <ul class="space-y-2 text-sm list-inside">
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Disassembly and cleaning of valves.' : 'Desarme y limpieza de las válvulas.'}
+                </li>
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Seats and covers undergo a blasting process.' : 'Los asientos y tapas son sometidos a un proceso de blasting.'}
+                </li>
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Internal consumable components, membranes, plates and springs are removed.' : 'Se retiran los componentes internos consumibles, membranas, platillos y resortes.'}
+                </li>
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Machining process for seats and covers under original specifications of tolerance, parallelism and flatness.' : 'Proceso de mecanizado para los asientos y tapas bajo las especificaciones originales de tolerancia, paralelismo y planitud.'}
+                </li>
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Valve assembly, replacing all internal components with new parts according to manufacturer specifications.' : 'Montaje de las válvulas, reemplazando la totalidad de sus componentes internos por piezas nuevas de acuerdo a las especificaciones del fabricante.'}
+                </li>
+                <li class="pl-2 border-l-2 border-bergner-red">
+                  {isEnglish ? 'Leak and function tests are performed, then packed for dispatch.' : 'Se realizan pruebas de estanqueidad y funcionamiento, luego son embaladas para su despacho.'}
+                </li>
               </ul>
             </div>
 
-            <p class="text-sm italic text-gray-600">El proceso se realiza en siete días, aunque en caso de urgencia el plazo puede reducirse a dos días.</p>
+            <p class="text-sm italic text-gray-600 border-l-4 border-yellow-400 pl-4 py-2 bg-yellow-50 rounded-r">
+              {isEnglish 
+                ? 'The process takes seven days, although in case of urgency the term can be reduced to two days. To achieve these times we always keep in stock internal spare parts, membranes, dampers, separators, plates and springs.'
+                : 'El proceso se realiza en siete días, aunque, en caso de urgencia el plazo puede reducirse a dos días. Para lograr estos tiempos siempre mantenemos en stock los repuestos internos, membranas, amortiguadores, separadores, platillos y resortes.'}
+            </p>
 
-            <div>
-              <h4 class="font-bold text-bergner-red mt-6 mb-3">SERVICIO DE MANTENIMIENTO DE COMPRESORES:</h4>
-              <p class="text-sm">Metalúrgica Bergner también ofrece el servicio para el mantenimiento de cualquier tipo de compresores a pistón.</p>
+            <div class="mt-6 pt-6 border-t border-gray-100">
+              <h4 class="font-bold text-bergner-red mb-2">
+                {isEnglish ? 'COMPRESSOR MAINTENANCE SERVICE:' : 'SERVICIO DE MANTENIMIENTO DE COMPRESORES:'}
+              </h4>
+              <p class="text-gray-700">
+                {isEnglish 
+                  ? 'Metalúrgica Bergner also offers maintenance service for any type of piston compressors.'
+                  : 'Metalúrgica Bergner también ofrece el servicio para el mantenimiento de cualquier tipo de compresores a pistón.'}
+              </p>
             </div>
           </div>
         </div>
