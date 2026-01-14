@@ -4,23 +4,40 @@ interface Props {
   products: any[];
 }
 
-const { products } = Astro.props;
+const { products = [] } = Astro.props;
 import site from '../data/site.json';
 const whatsappNumber = site.whatsappNumber || '5491100000000';
+
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+
+const txt = {
+  codigo: isEnglish ? 'Code' : 'Código',
+  nombre: isEnglish ? 'Name' : 'Nombre',
+  material: isEnglish ? 'Material' : 'Material',
+  diametro: isEnglish ? 'Diameter' : 'Diámetro',
+  presion: isEnglish ? 'Pressure / Application' : 'Presión / Aplicación',
+  stock: isEnglish ? 'Stock' : 'Stock',
+  ficha: isEnglish ? 'Datasheet' : 'Ficha',
+  accion: isEnglish ? 'Action' : 'Acción',
+  instock: isEnglish ? 'In Stock' : 'En Stock',
+  consultar: isEnglish ? 'Inquire' : 'Consultar',
+  descargar: isEnglish ? 'Download' : 'Descargar'
+};
 ---
 
 <div class="overflow-x-auto bg-white rounded border border-gray-200">
   <table class="min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-50">
       <tr>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Código</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nombre</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Material</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Diámetro</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Presión / Aplicación</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stock</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ficha</th>
-        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Acción</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.codigo}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.nombre}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.material}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.diametro}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.presion}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.stock}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.ficha}</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">{txt.accion}</th>
       </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-100 text-sm">
@@ -36,8 +53,8 @@ const whatsappNumber = site.whatsappNumber || '5491100000000';
             <td class="px-4 py-3 text-gray-700">{material}</td>
             <td class="px-4 py-3 text-gray-700">{diam}</td>
             <td class="px-4 py-3 text-gray-700">{pres}</td>
-            <td class="px-4 py-3 text-gray-700">{p.inStock ? 'En Stock' : 'Consultar'}</td>
-            <td class="px-4 py-3 text-gray-700">{p.pdf ? (<a href={p.pdf} target="_blank" rel="noopener noreferrer" class="text-bergner-red underline">Descargar</a>) : '-'}</td>
+            <td class="px-4 py-3 text-gray-700">{p.inStock ? txt.instock : txt.consultar}</td>
+            <td class="px-4 py-3 text-gray-700">{p.pdf ? (<a href={p.pdf} target="_blank" rel="noopener noreferrer" class="text-bergner-red underline">{txt.descargar}</a>) : '-'}</td>
             <td class="px-4 py-3 text-gray-700">
               <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, consulto por el repuesto código ${p.partNumber}: ${p.title}`)}`} target="_blank" rel="noopener noreferrer" class="inline-block bg-bergner-red text-white px-3 py-1 rounded text-sm">WhatsApp</a>
             </td>

@@ -8,7 +8,11 @@ interface Category {
   slug: string;
 }
 
-const categories: Category[] = [
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+const langPrefix = isEnglish ? '/en' : '/es';
+
+const categoriesES: Category[] = [
   { id: '1', name: 'Ollas', icon: '🍲', slug: 'ollas' },
   { id: '2', name: 'Sartenes', icon: '🍳', slug: 'sartenes' },
   { id: '3', name: 'Cubiertos', icon: '🥄', slug: 'cubiertos' },
@@ -16,6 +20,23 @@ const categories: Category[] = [
   { id: '5', name: 'Accesorios', icon: '🔧', slug: 'accesorios' },
   { id: '6', name: 'Baterías de Cocina', icon: '🔲', slug: 'baterias' },
 ];
+
+const categoriesEN: Category[] = [
+  { id: '1', name: 'Pots', icon: '🍲', slug: 'pots' },
+  { id: '2', name: 'Pans', icon: '🍳', slug: 'pans' },
+  { id: '3', name: 'Cutlery', icon: '🥄', slug: 'cutlery' },
+  { id: '4', name: 'Kitchen Electro', icon: '⚡', slug: 'electro' },
+  { id: '5', name: 'Accessories', icon: '🔧', slug: 'accessories' },
+  { id: '6', name: 'Cookware Sets', icon: '🔲', slug: 'cookware' },
+];
+
+const categories = isEnglish ? categoriesEN : categoriesES;
+
+const texts = {
+  tag: isEnglish ? 'Explore by Category' : 'Explora por Categoría',
+  title: isEnglish ? 'Our Products' : 'Nuestros Productos',
+  subtitle: isEnglish ? 'A wide selection of professional gastronomic equipment for your kitchen' : 'Una amplia selección de equipamiento gastronómico profesional para tu cocina'
+};
 ---
 
 <section class="py-20 bg-white">
@@ -23,20 +44,20 @@ const categories: Category[] = [
     
     <div class="text-center mb-16">
       <span class="inline-block text-bergner-red font-semibold text-sm uppercase tracking-widest mb-4">
-        Explora por Categoría
+        {texts.tag}
       </span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Nuestros Productos
+        {texts.title}
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-        Una amplia selección de equipamiento gastronómico profesional para tu cocina
+        {texts.subtitle}
       </p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
       {categories.map((category) => (
         <a 
-          href={`/productos?categoria=${category.slug}`}
+          href={`${langPrefix}/productos?categoria=${category.slug}`}
           class="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center hover:from-bergner-red/5 hover:to-bergner-red/10 transition-all duration-300 border border-gray-200 hover:border-bergner-red/30"
         >
           {/* Efecto de fondo */}

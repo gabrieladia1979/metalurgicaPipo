@@ -16,7 +16,7 @@ const productos = [
     title: 'Válvula Concéntrica Modelo 450',
     category: 'Válvulas',
     description: 'Válvula para compresores, cuerpo en acero al carbono.',
-    image: '',
+    image: '/docs/SaveClip.App_81869298_579085676155469_8972480046240624672_n.jpg',
     inStock: true,
     pdf: '/docs/valvula-450.pdf',
     specs: { 'Material': 'Acero', 'Diámetro': '40 mm', 'Presión': '200 Bar' }
@@ -27,7 +27,9 @@ const productos = [
     title: 'Aro de Ajuste A-210',
     category: 'Aros',
     description: 'Aro de retención para ejes rotativos.',
-    image: '',
+    image: '/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg',
+    inStock: true, // Si hay foto, asumimos stock o dejamos como estaba
+    pdf: null,
     inStock: false,
     pdf: '',
     specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
@@ -65,7 +67,7 @@ const productos = [
     {/* Tabla de Productos */}
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ProductTable productos={productos} />
+        <ProductTable products={productos} />
       </div>
     </section>
 

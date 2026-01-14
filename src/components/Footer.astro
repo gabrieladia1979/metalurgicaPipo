@@ -5,7 +5,7 @@ import site from '../data/site.json';
 // Detectar idioma actual
 const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
-const langPrefix = isEnglish ? '/en' : '';
+const langPrefix = isEnglish ? '/en' : '/es';
 
 // Textos por idioma
 const footerTexts = {

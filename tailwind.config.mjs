@@ -4,10 +4,10 @@ module.exports = {
     extend: {
       colors: {
         bergner: {
-          // mantenemos la clave 'red' para compatibilidad con clases existentes
-          red: '#0B4A6F', // color principal: azul industrial
-          dark: '#111827', // gris muy oscuro
-          light: '#F4F6F8', // fondo claro técnico
+          red: '#E54F20', // Rojo/Naranja de la marca (Accent)
+          blue: '#004481', // Azul corporativo (Primary)
+          dark: '#111827',
+          light: '#F4F6F8',
         },
       },
       fontFamily: {

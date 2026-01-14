@@ -1,7 +1,10 @@
 ---
 // src/components/Services.astro
 
-const services = [
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+
+const servicesES = [
   {
     title: "Mecanizado CNC",
     description: "Tornería y fresado de alta precisión para piezas complejas y series de producción.",
@@ -23,6 +26,36 @@ const services = [
     icon: "engineering"
   }
 ];
+
+const servicesEN = [
+  {
+    title: "CNC Machining",
+    description: "High precision turning and milling for complex parts and production series.",
+    icon: "precision_manufacturing" 
+  },
+  {
+    title: "Valve Repair",
+    description: "Maintenance and rectification of industrial valves under safety standards.",
+    icon: "build" 
+  },
+  {
+    title: "Specialized Welding",
+    description: "TIG/MIG processes for stainless steel, aluminum and special alloys.",
+    icon: "waves"
+  },
+  {
+    title: "Prototype Development",
+    description: "Reverse engineering and manufacturing of unique parts according to sample or blueprint.",
+    icon: "engineering"
+  }
+];
+
+const services = isEnglish ? servicesEN : servicesES;
+
+const txt = {
+  title: isEnglish ? 'Our Services' : 'Nuestros Servicios',
+  subtitle: isEnglish ? 'Integral metallurgical solutions adapted to the needs of modern industry.' : 'Soluciones metalúrgicas integrales adaptadas a las necesidades de la industria moderna.'
+};
 ---
 
 <section id="servicios" class="py-20 bg-gray-50 font-sans">
@@ -30,10 +63,10 @@ const services = [
     
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-bergner-red mb-4">
-        Nuestros Servicios
+        {txt.title}
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-        Soluciones metalúrgicas integrales adaptadas a las necesidades de la industria moderna.
+        {txt.subtitle}
       </p>
     </div>
 
@@ -41,8 +74,21 @@ const services = [
     <div class="mb-20 bg-white rounded-xl shadow-lg overflow-hidden">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
         {/* Imagen arriba en mobile, izquierda en desktop */}
-        <div class="order-first md:order-first flex items-center justify-center">
-          <img src="/docs/valvulas.jpg" alt="Reparación de válvulas" class="w-full h-auto rounded-lg shadow-md" />
+        <div class="order-first md:order-first flex flex-col gap-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="relative group">
+              <img src="/docs/para arreglar.jpg" alt="Antes / Before" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-md border border-gray-200" />
+              <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors rounded-lg"></div>
+              <span class="absolute bottom-2 left-2 bg-black/70 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">ANTES / BEFORE</span>
+            </div>
+            <div class="relative group">
+              <img src="/docs/nueva.jpg" alt="Después / After" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-md border-2 border-green-500/20" />
+              <span class="absolute bottom-2 left-2 bg-bergner-red text-white text-xs font-bold px-2 py-1 rounded shadow-lg">AHORA / NOW</span>
+            </div>
+          </div>
+          <p class="text-center text-sm text-gray-500 italic bg-gray-50 py-2 rounded-lg">
+            {isEnglish ? 'Full restoration: 100% functionality guaranteed' : 'Restauración completa: Funcionalidad 100% garantizada'}
+          </p>
         </div>
 
         {/* Texto abajo en mobile, derecha en desktop */}
