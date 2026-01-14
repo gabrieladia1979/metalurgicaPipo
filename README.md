@@ -1,7 +1,7 @@
-# Metalúrgica Pipo - Landing Page Moderna
+# Bergner Argentina - Landing Page Moderna
 
 ## 📋 Descripción
-Landing page moderna y responsive para Metalúrgica Pipo, distribuidora oficial de equipamiento gastronómico profesional Bergner. Diseñada con enfoque **Mobile First**, conversión a WhatsApp y SEO.
+Landing page moderna y responsive para Bergner Argentina, distribuidora oficial de equipamiento gastronómico profesional Bergner. Diseñada con enfoque **Mobile First**, conversión a WhatsApp y SEO.
 
 ## 🎯 Características
 
@@ -184,4 +184,4 @@ Para Tailwind: [tailwindcss.com](https://tailwindcss.com)
 
 ---
 
-**Hecho con ❤️ para Metalúrgica Pipo | 2026**
+**Hecho con ❤️ para Bergner Argentina | 2026**

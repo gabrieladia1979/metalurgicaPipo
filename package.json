@@ -1,7 +1,7 @@
 {
-  "name": "metalurgica-pipo",
+  "name": "bergner-argentina",
   "version": "1.0.0",
-  "description": "Landing page moderna para Metalúrgica Pipo - Equipamiento gastronómico Bergner",
+  "description": "Landing page moderna para Bergner Argentina - Soluciones Industriales",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
