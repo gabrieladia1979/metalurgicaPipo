@@ -4,6 +4,17 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import site from '../../data/site.json';
+
+const marcas = [
+  "ABC", "Atelier François", "Bellis & Morcom", "SIAD", "AJAX", "LMF", 
+  "ARIEL", "Nuovo Pignone", "Ingersoll Rand", "Atlas Copco", 
+  "Mitsui", "Joy", "Sabroe", "Mycom"
+];
+
+const clientes = [
+  "Pampa Energía", "YPF", "Galileo", "Sector PET (embotelladoras)", 
+  "Industria química y petroquímica", "Plantas de compresión de gas"
+];
 ---
 
 <Layout title="Quiénes Somos" description="Con más de 50 años en el mercado, en Metalúrgica Bergner S.A. fabricamos repuestos metalmecánicos para compresores a pistón, ofreciendo calidad, confiabilidad y compromiso en cada proyecto.">
@@ -35,11 +46,12 @@ import site from '../../data/site.json';
               La excelencia de nuestros productos se basa en materiales de alta calidad, tecnología de última generación y mejora continua bajo estrictos controles. Con presencia en América Latina, Europa y Asia, nuestros productos son totalmente intercambiables con los originales, garantizando confiabilidad y precisión.
             </p>
           </div>
-          <div class="bg-gradient-to-br from-bergner-red/10 to-bergner-red/5 rounded-2xl h-96 flex items-center justify-center">
-            <div class="text-center">
-              <div class="text-6xl mb-4">🏭</div>
-              <p class="text-gray-500 font-semibold">50+ Años de Experiencia</p>
-            </div>
+          <div class="relative rounded-2xl overflow-hidden shadow-xl h-96">
+            <img 
+              src="/docs/empresa.png" 
+              alt="Instalaciones de Metalúrgica Bergner" 
+              class="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -70,6 +82,116 @@ import site from '../../data/site.json';
             <p class="text-gray-600">
               Maquinaria de última tecnología y procesos optimizados para un producto exclusivo.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Calidad ISO 9001 */}
+    <section class="py-20 bg-white overflow-hidden relative">
+      <div class="absolute inset-0 bg-gray-50 transform -skew-y-3 origin-top-left z-0 h-full w-full opacity-50"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold tracking-wide uppercase mb-2">Excelencia Certificada</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Calidad ISO 9001:2015</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            En Metalúrgica Bergner S.A., la calidad no es solo un objetivo, es nuestro estándar operativo.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+          <div class="grid md:grid-cols-2">
+            <div class="p-10 md:p-12 flex flex-col justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+              <h3 class="text-3xl font-bold mb-6">Sistema de Gestión Integral</h3>
+              <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                Nuestro compromiso con la mejora continua está avalado por la certificación ISO 9001:2015, asegurando que cada proceso, desde la selección de materia prima hasta la entrega final, cumple con los más altos estándares internacionales.
+              </p>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Trazabilidad Total</h4>
+                    <p class="text-gray-400 text-sm">Seguimiento detallado de cada pieza fabricada.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Auditorías Constantes</h4>
+                    <p class="text-gray-400 text-sm">Controles internos y externos periódicos.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="p-10 md:p-12 bg-white flex flex-col justify-center">
+              <div class="grid gap-8">
+                <div class="flex gap-5">
+                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">📏</div>
+                  <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Intercambiabilidad 100%</h4>
+                    <p class="text-gray-600">
+                      Garantizamos que nuestros repuestos son dimensional y funcionalmente idénticos a los originales, permitiendo un reemplazo directo sin adaptaciones.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="flex gap-5">
+                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">🔍</div>
+                  <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Control Dimensional</h4>
+                    <p class="text-gray-600">
+                      Utilizamos instrumentos de precisión calibrados para verificar tolerancias críticas en nuestros laboratorios de metrología.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-5">
+                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">🧪</div>
+                  <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Análisis de Materiales</h4>
+                    <p class="text-gray-600">
+                      Ensayos de dureza y composición química para asegurar la resistencia y durabilidad requerida por las exigencias operativas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Marcas y Clientes */}
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Nuestra Experiencia</h2>
+        
+        <div class="grid md:grid-cols-2 gap-16">
+          {/* Marcas */}
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Marcas de Compresores</h3>
+            <p class="text-gray-600 mb-6">Trabajamos con las principales marcas del mercado:</p>
+            <ul class="grid grid-cols-2 gap-4">
+              {marcas.map(marca => (
+                <li class="flex items-center gap-2 text-gray-700 font-medium">
+                  <span class="text-bergner-red">▪</span> {marca}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Clientes */}
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Empresas Clientes</h3>
+            <p class="text-gray-600 mb-6">Confían en nosotros:</p>
+            <ul class="space-y-4">
+              {clientes.map(cliente => (
+                <li class="flex items-center gap-3 text-lg text-gray-700">
+                  <span class="text-green-600">✓</span> {cliente}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

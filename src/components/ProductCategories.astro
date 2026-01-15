@@ -9,54 +9,71 @@ const families = [
     title: "Válvulas de Compresor",
     description: "Válvulas de plato, de anillos y concéntricas para alta y baja presión.",
     items: ["Válvulas de Plato", "Válvulas de Anillo", "Kits de reparación"],
-    image: "/images/placeholder-valvula.png"
+    image: "/docs/valvulas.jpg"
   },
   {
     title: "Aros y Empaquetaduras",
     description: "Sellado de alto rendimiento para pistones y vástagos.",
     items: ["Aros de pistón", "Empaquetaduras de vástago", "Rascadores de aceite"],
-    image: "/images/placeholder-aros.png"
+    image: "/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg"
   },
   {
     title: "Servicios de Reparación",
     description: "Rectificación y puesta a punto de componentes críticos.",
     items: ["Reacondicionamiento", "Mecanizado CNC", "Pruebas hidráulicas"],
-    image: "/images/placeholder-servicios.png"
+    image: "/docs/para arreglar.jpg"
   }
 ];
 ---
 
-<section class="py-20 bg-bergner-light">
+<section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-12 border-l-4 border-bergner-red pl-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 uppercase tracking-tight">Nuestras Soluciones</h2>
-      <p class="mt-2 text-lg text-gray-600 max-w-2xl">Componentes de reemplazo y servicios con calidad OEM para la industria.</p>
+    <div class="text-center mb-16">
+      <span class="text-bergner-red font-bold tracking-wider uppercase text-sm">Catálogo</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Nuestras Soluciones</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Componentes de reemplazo y servicios con calidad OEM para la industria.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       {families.map((family) => (
-        <article class="group bg-white rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-transparent hover:border-bergner-red flex flex-col">
-          <div class="h-48 bg-white overflow-hidden flex items-center justify-center p-6 relative">
-            <div class="absolute inset-0 bg-bergner-red opacity-0 group-hover:opacity-5 transition-opacity"></div>
-            <img src={family.image} alt={family.title} class="h-full w-full object-contain mix-blend-multiply filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
+        <article class="group bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="h-64 overflow-hidden relative">
+            <div class="absolute inset-0 bg-gray-900/10 group-hover:bg-gray-900/0 transition-colors z-10"></div>
+            <img 
+              src={family.image} 
+              alt={family.title} 
+              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            />
           </div>
 
-          <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-bergner-red transition-colors">{family.title}</h3>
-            <p class="text-gray-600 mb-6 text-sm leading-relaxed">{family.description}</p>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-bergner-red transition-colors">
+              {family.title}
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              {family.description}
+            </p>
 
-            <ul class="space-y-2 mb-6">
+            <ul class="space-y-3 mb-8">
               {family.items.map((item) => (
-                <li class="flex items-center text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-bergner-red mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <li class="flex items-center text-gray-700">
+                  <span class="w-1.5 h-1.5 bg-bergner-red rounded-full mr-3"></span>
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <a href={`${linkPrefix}/productos`} class="flex items-center text-bergner-red font-bold text-sm uppercase tracking-wider group-hover:underline">Ver Catálogo <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
+            <a 
+              href={`${linkPrefix}/productos`} 
+              class="inline-flex items-center text-bergner-red font-bold tracking-wide hover:text-red-800 transition-colors"
+            >
+              VER PRODUCTOS
+              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
           </div>
         </article>
       ))}
