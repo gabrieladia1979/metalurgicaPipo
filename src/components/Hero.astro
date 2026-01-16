@@ -19,17 +19,26 @@ const texts = {
     clients: isEnglish ? 'Satisfied Clients' : 'Clientes Satisfechos'
   }
 };
+
+const bgImages = [
+  '/carrusel/image.png',
+  '/carrusel/image%20copy.png',
+  '/carrusel/Gemini_Generated_Image_wb75o1wb75o1wb75.png'
+];
 ---
 
 <section class="relative w-full h-[700px] md:h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
   
-  {/* Imagen de fondo - Industrial */}
+  {/* Fondo con carrusel de imágenes nuevas */}
   <div class="absolute inset-0 z-0">
-    <img 
-      src="/docs/valvulas.jpg" 
-      alt="Industry Lathe Metal" 
-      class="w-full h-full object-cover opacity-40 scale-105 animate-slow-zoom"
-    />
+    {bgImages.map((src, idx) => (
+      <img
+        src={src}
+        alt={`Fondo industrial ${idx+1}`}
+        class={`absolute inset-0 w-full h-full object-cover opacity-40 scale-105 animate-slow-zoom carousel-frame animate-carousel${idx}`}
+        loading={idx === 0 ? 'eager' : 'lazy'}
+      />
+    ))}
   </div>
 
   {/* Gradiente Overlay */}
@@ -120,5 +129,31 @@ const texts = {
   }
   .animate-fade-in-up {
     animation: fade-in-up 1s ease-out;
+  }
+
+  /* Carrusel más suave: crossfade + ken-burns leve */
+  @keyframes carousel-fade {
+    0% { opacity: 0; transform: scale(1.02) translateX(12px); }
+    12% { opacity: 1; transform: scale(1.03) translateX(0); }
+    38% { opacity: 1; transform: scale(1.05) translateX(-6px); }
+    55% { opacity: 0; transform: scale(1.06) translateX(-12px); }
+    100% { opacity: 0; transform: scale(1.06) translateX(-12px); }
+  }
+  .carousel-frame {
+    opacity: 0;
+    will-change: opacity, transform;
+    filter: saturate(1.05) contrast(1.02);
+  }
+  .animate-carousel0 { animation: carousel-fade 18s infinite ease-in-out; }
+  .animate-carousel1 { animation: carousel-fade 18s infinite ease-in-out; animation-delay: 6s; }
+  .animate-carousel2 { animation: carousel-fade 18s infinite ease-in-out; animation-delay: 12s; }
+
+  @keyframes carousel-dot {
+    0%,12% { transform: scale(1.2); opacity: 1; }
+    38% { transform: scale(1.05); opacity: 0.8; }
+    55%,100% { transform: scale(1); opacity: 0.4; }
+  }
+  .animate-carousel-dot {
+    animation: carousel-dot 18s infinite ease-in-out;
   }
 </style>

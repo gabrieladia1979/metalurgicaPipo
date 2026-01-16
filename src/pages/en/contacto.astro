@@ -103,31 +103,41 @@ import site from '../../data/site.json';
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Location</h2>
-        <div class="rounded-xl overflow-hidden shadow-lg h-96 bg-gray-200 flex items-center justify-center">
-          <p class="text-gray-500 font-semibold">Interactive map (integrate with Google Maps)</p>
+        <div class="rounded-xl overflow-hidden shadow-lg h-96 bg-gray-200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1768578270776!6m8!1m7!1spjoI7bLf-dz8a3KwkGXExA!2m2!1d-34.54203012634142!2d-58.51985884123237!3f259!4f0!5f0.7820865974627469"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-full"
+            title="Location map"
+          ></iframe>
         </div>
       </div>
     </section>
 
-    <!-- Downloads: Catalog and Technical Sheets -->
+    <!-- Downloads: Company Summaries -->
     <section class="py-12 bg-white border-t border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Downloads</h2>
-        <p class="text-gray-600 mb-6">Download catalogs and technical sheets in PDF for your repairs and inquiries.</p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Company Summaries</h2>
+        <p class="text-gray-600 mb-6">Download the institutional profiles in PDF.</p>
 
         <div class="grid md:grid-cols-2 gap-6">
-          <a href="/docs/valvula-450.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+          <a href="/pdf/MB.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
             <div>
-              <p class="font-semibold text-gray-900">Technical Sheet – Valve Model 450</p>
-              <p class="text-sm text-gray-500">Material, dimensions and pressure specifications.</p>
+              <p class="font-semibold text-gray-900">Institutional Summary – MB</p>
+              <p class="text-sm text-gray-500">History, capabilities and production scope.</p>
             </div>
             <div class="text-sm text-bergner-red font-medium">Download</div>
           </a>
 
-          <a href="/docs/empaquetadura-03.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
+          <a href="/pdf/PRESENTACION%20BERGNER%201%20ESP..pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 border rounded hover:shadow-sm">
             <div>
-              <p class="font-semibold text-gray-900">Technical Sheet – Packing Type 03</p>
-              <p class="text-sm text-gray-500">Temperature ranges and recommended applications.</p>
+              <p class="font-semibold text-gray-900">Bergner Presentation – ESP</p>
+              <p class="text-sm text-gray-500">Commercial overview and product lines.</p>
             </div>
             <div class="text-sm text-bergner-red font-medium">Download</div>
           </a>
