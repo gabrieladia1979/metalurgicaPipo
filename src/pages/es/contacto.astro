@@ -22,183 +22,80 @@ import site from '../../data/site.json';
       </div>
     </section>
 
-    {/* Contenido */}
+    {/* Contenido - Rediseñado sin formulario */}
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12">
-          
-          {/* Información de contacto */}
-          <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">Datos de Contacto</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             
-            <div class="space-y-8">
-              <div class="flex gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
-                    <span class="text-2xl">📍</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="font-bold text-gray-900 mb-1">Dirección</h3>
-                  <p class="text-gray-600">
-                    {site.address}
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
-                    <span class="text-2xl">📞</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="font-bold text-gray-900 mb-1">Teléfono</h3>
-                  <p class="text-gray-600">+54 9 11 0000-0000</p>
-                  <p class="text-gray-500 text-sm">Lunes a Viernes, 9:00 - 18:00</p>
-                </div>
-              </div>
-
-              <div class="flex gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-bergner-red/10 rounded-lg flex items-center justify-center">
-                    <span class="text-2xl">📧</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="font-bold text-gray-900 mb-1">Email</h3>
-                  <p class="text-gray-600">{site.email}</p>
-                  <p class="text-gray-500 text-sm">Respuesta en 24 horas</p>
-                </div>
-              </div>
-
-              <div class="flex gap-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-green-600/10 rounded-lg flex items-center justify-center">
-                    <span class="text-2xl">💬</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="font-bold text-gray-900 mb-1">WhatsApp / Teléfono</h3>
-                  <p class="text-gray-600 mb-2">+54 9 11 4761-2929</p>
-                  <p class="text-gray-600 mb-2">{site.phone}</p>
-                  <a 
-                    href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero consultar...')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm"
-                  >
-                    Abrir WhatsApp
-                  </a>
-                </div>
-              </div>
+            {/* Dirección */}
+            <div class="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow group">
+               <div class="w-16 h-16 bg-bergner-red/10 group-hover:bg-bergner-red/20 rounded-full flex items-center justify-center mb-6 text-bergner-red transition-colors">
+                  <span class="text-3xl">📍</span>
+               </div>
+               <h3 class="font-bold text-gray-900 mb-2 text-xl">Dirección</h3>
+               <p class="text-gray-600 leading-relaxed">
+                 {site.address}
+               </p>
             </div>
 
-            {/* Redes Sociales */}
-            <div class="mt-12 pt-8 border-t border-gray-200">
-              <h3 class="font-bold text-gray-900 mb-4">Síguenos</h3>
-              <div class="flex gap-4">
-                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
-                  f
-                </a>
-                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
-                  📷
-                </a>
-                <a href="#" class="w-12 h-12 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-xl">
-                  🎥
-                </a>
-              </div>
+            {/* Teléfono */}
+            <div class="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow group">
+               <div class="w-16 h-16 bg-bergner-red/10 group-hover:bg-bergner-red/20 rounded-full flex items-center justify-center mb-6 text-bergner-red transition-colors">
+                  <span class="text-3xl">📞</span>
+               </div>
+               <h3 class="font-bold text-gray-900 mb-2 text-xl">Teléfono</h3>
+               <p class="text-gray-600 font-medium text-lg mb-1">+54 9 11 0000-0000</p>
+               <p class="text-gray-500 text-sm">Lunes a Viernes<br/>9:00 - 18:00</p>
             </div>
-          </div>
 
-          {/* Formulario de contacto */}
-          <div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">Envíanos un Mensaje</h2>
-            
-            <form class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-              <div>
-                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
-                  Nombre Completo
-                </label>
-                <input 
-                  type="text" 
-                  id="nombre" 
-                  name="nombre"
-                  required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
-                  placeholder="Tu nombre"
-                />
-              </div>
+            {/* Email */}
+            <div class="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow group">
+               <div class="w-16 h-16 bg-bergner-red/10 group-hover:bg-bergner-red/20 rounded-full flex items-center justify-center mb-6 text-bergner-red transition-colors">
+                  <span class="text-3xl">📧</span>
+               </div>
+               <h3 class="font-bold text-gray-900 mb-2 text-xl">Email</h3>
+               <a href={`mailto:${site.email}`} class="text-bergner-red hover:text-red-700 font-medium text-lg break-all transition-colors cursor-pointer">
+                 {site.email}
+               </a>
+               <p class="text-gray-500 text-sm mt-1">Consultas y Presupuestos</p>
+            </div>
 
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
-                  placeholder="tu@email.com"
-                />
-              </div>
-
-              <div>
-                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">
-                  Teléfono
-                </label>
-                <input 
-                  type="tel" 
-                  id="telefono" 
-                  name="telefono"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
-                  placeholder="+54 9 11 0000-0000"
-                />
-              </div>
-
-              <div>
-                <label for="asunto" class="block text-sm font-medium text-gray-700 mb-2">
-                  Asunto
-                </label>
-                <input 
-                  type="text" 
-                  id="asunto" 
-                  name="asunto"
-                  required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red"
-                  placeholder="¿En qué podemos ayudarte?"
-                />
-              </div>
-
-              <div>
-                <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-2">
-                  Mensaje
-                </label>
-                <textarea 
-                  id="mensaje" 
-                  name="mensaje"
-                  required
-                  rows="5"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bergner-red resize-none"
-                  placeholder="Cuéntanos más sobre tu consulta..."
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit"
-                class="w-full bg-bergner-red hover:bg-red-700 text-white py-3 px-6 rounded-lg font-bold transition-colors"
-              >
-                Enviar Mensaje
-              </button>
-            </form>
-
-            <p class="text-sm text-gray-500 text-center mt-4">
-              También puedes contactarnos directamente por WhatsApp para una respuesta más inmediata.
-            </p>
-          </div>
+            {/* WhatsApp */}
+            <div class="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow group">
+               <div class="w-16 h-16 bg-green-600/10 group-hover:bg-green-600/20 rounded-full flex items-center justify-center mb-6 text-green-600 transition-colors">
+                  <span class="text-3xl">💬</span>
+               </div>
+               <h3 class="font-bold text-gray-900 mb-2 text-xl">WhatsApp</h3>
+               <p class="text-gray-600 mb-4">{site.phone}</p>
+               <a 
+                 href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero consultar...')}`}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-bold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+               >
+                 Enviar Mensaje
+               </a>
+            </div>
 
         </div>
+
+        {/* Redes Sociales */}
+        <div class="text-center border-t border-gray-100 pt-16">
+            <h3 class="font-bold text-gray-900 mb-8 text-2xl">Síguenos</h3>
+            <div class="flex gap-6 justify-center">
+            <a href="#" class="w-14 h-14 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-2xl duration-300">
+                f
+            </a>
+            <a href="#" class="w-14 h-14 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-2xl duration-300">
+                📷
+            </a>
+            <a href="#" class="w-14 h-14 bg-gray-100 hover:bg-bergner-red hover:text-white rounded-full flex items-center justify-center transition-all text-2xl duration-300">
+                🎥
+            </a>
+            </div>
+        </div>
+
       </div>
     </section>
 
