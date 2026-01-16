@@ -12,70 +12,70 @@ import site from '../../data/site.json';
 const productos = [
   {
     id: 1,
-    partNumber: '450-12',
-    title: 'Válvula Concéntrica Modelo 450',
-    category: 'Válvulas',
-    description: 'Válvula para compresores, cuerpo en acero al carbono.',
-    image: '/docs/SaveClip.App_81869298_579085676155469_8972480046240624672_n.jpg',
+    partNumber: 'AP-001',
+    title: 'Aros de Pistón',
+    category: 'Aros',
+    description: 'Aros de compresión y guía para asegurar un sellado eficiente y prolongar la vida útil.',
+    image: '/docs/producto 1.jpg',
     inStock: true,
-    pdf: '/docs/valvula-450.pdf',
-    specs: { 'Material': 'Acero', 'Diámetro': '40 mm', 'Presión': '200 Bar' }
+    pdf: '', // Aros no suelen tener PDF único
+    specs: { 'Material': 'Hierro Fundido/Bronce/PTFE', 'Tipo': 'Compresión/Guía' }
   },
   {
     id: 2,
-    partNumber: 'A-210',
-    title: 'Aro de Ajuste A-210',
-    category: 'Aros',
-    description: 'Aro de retención para ejes rotativos.',
-    image: '/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg',
-    inStock: false,
-    pdf: '',
-    specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
-  },
-  {
-    id: 3,
-    partNumber: 'EMP-03',
-    title: 'Empaquetadura Tipo 03',
-    category: 'Empaquetaduras',
-    description: 'Empaquetadura para sellado de válvulas y bombas.',
-    image: '',
-    inStock: true,
-    pdf: '/docs/empaquetadura-03.pdf',
-    specs: { 'Material': 'Grafito', 'Temperatura': '-50°C a 400°C' }
-  },
-  {
-    id: 4,
-    partNumber: '450-12-dup1',
-    title: 'Válvula Concéntrica Modelo 450 (Copia)',
+    partNumber: 'VAL-002',
+    title: 'Válvulas',
     category: 'Válvulas',
-    description: 'Válvula para compresores, cuerpo en acero al carbono.',
-    image: '/docs/SaveClip.App_81869298_579085676155469_8972480046240624672_n.jpg',
+    description: 'Válvulas de admisión, escape y concéntricas de alta eficiencia.',
+    image: '/docs/producto 2.jpg',
     inStock: true,
-    pdf: '/docs/valvula-450.pdf',
-    specs: { 'Material': 'Acero', 'Diámetro': '40 mm', 'Presión': '200 Bar' }
-  },
-  {
-    id: 5,
-    partNumber: 'A-210-dup1',
-    title: 'Aro de Ajuste A-210 (Copia)',
-    category: 'Aros',
-    description: 'Aro de retención para ejes rotativos.',
-    image: '/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg',
-    inStock: false,
     pdf: '',
-    specs: { 'Material': 'Hierro Fundido', 'Aplicación': 'Ejes 210 mm' }
+    specs: { 'Material': 'Acero / Inoxidable', 'Presión': 'Alta/Baja' }
   },
   {
-    id: 6,
-    partNumber: 'EMP-03-dup1',
-    title: 'Empaquetadura Tipo 03 (Copia)',
-    category: 'Empaquetaduras',
-    description: 'Empaquetadura para sellado de válvulas y bombas.',
-    image: '',
-    inStock: true,
-    pdf: '/docs/empaquetadura-03.pdf',
-    specs: { 'Material': 'Grafito', 'Temperatura': '-50°C a 400°C' }
+      id: 3,
+      partNumber: 'PD-003',
+      title: 'Pistón Descargador',
+      category: 'Pistones',
+      description: 'Componentes para sistemas de regulación y control de carga.',
+      image: '/docs/producto 3.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Aplicación': 'Control de carga' }
   },
+  {
+      id: 4,
+      partNumber: 'JUN-004',
+      title: 'Juntas',
+      category: 'Juntas',
+      description: 'Juntas para sellado estático en tapas, cilindros y cárter.',
+      image: '/docs/producto 4.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Tipos': 'Tapas, Cilindros' }
+  },
+  {
+      id: 5,
+      partNumber: 'SV-005',
+      title: 'Sellos de Vástago',
+      category: 'Sellos',
+      description: 'Empaquetaduras y sellos dinámicos para vástagos.',
+      image: '/docs/producto 5.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Función': 'Sellado dinámico' }
+  },
+  {
+      id: 6,
+      partNumber: 'RI-006',
+      title: 'Repuestos Internos',
+      category: 'Repuestos',
+      description: 'Cojinetes, pernos, bujes y otros componentes internos.',
+      image: '/docs/producto 6.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Componentes': 'Varios' }
+  }
 ];
 ---
 
