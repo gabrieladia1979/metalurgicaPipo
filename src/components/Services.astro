@@ -58,120 +58,153 @@ const txt = {
 };
 ---
 
-<section id="servicios" class="py-20 bg-gray-50 font-sans">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<section id="servicios" class="py-24 bg-gradient-to-b from-gray-50 to-white font-sans relative overflow-hidden">
+  {/* Decorative background lines */}
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-bergner-blue to-bergner-red"></div>
+  <div class="absolute -top-40 -right-40 w-96 h-96 bg-bergner-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/2 -left-20 w-72 h-72 bg-bergner-red/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-bergner-red mb-4">
-        {txt.title}
+    <div class="text-center mb-20">
+      <span class="text-bergner-red font-bold tracking-wider uppercase text-sm mb-3 block">
+        {isEnglish ? 'What We Do' : 'Nuestros Servicios'}
+      </span>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+        {isEnglish ? 'Industrial Solutions' : 'Soluciones Industriales'}
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+      <p class="text-gray-600 max-w-3xl mx-auto text-xl leading-relaxed">
         {txt.subtitle}
       </p>
     </div>
 
-    {/* Featured Service Section */}
-    <div class="mb-20 bg-white rounded-xl shadow-lg overflow-hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
-        {/* Imagen arriba en mobile, izquierda en desktop */}
-        <div class="order-first md:order-first flex flex-col gap-4">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="relative group">
-              <img src="/docs/para arreglar.jpg" alt="Antes / Before" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-md border border-gray-200" />
-              <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors rounded-lg"></div>
-              <span class="absolute bottom-2 left-2 bg-black/70 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">ANTES / BEFORE</span>
-            </div>
-            <div class="relative group">
-              <img src="/docs/nueva.jpg" alt="Después / After" class="w-full h-48 md:h-64 object-cover rounded-lg shadow-md border-2 border-green-500/20" />
-              <span class="absolute bottom-2 left-2 bg-bergner-red text-white text-xs font-bold px-2 py-1 rounded shadow-lg">AHORA / NOW</span>
-            </div>
+    {/* Featured Service Section - Redesigned */}
+    <div class="mb-24">
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
+        
+        {/* Images Area - "Better placed photos" as requested */}
+        <div class="lg:w-[55%] bg-slate-50 relative p-6 md:p-10 flex flex-col justify-center">
+          <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+          
+          <div class="relative z-10">
+             <div class="flex flex-col md:flex-row items-center gap-6 justify-center">
+                
+                {/* Before Image */}
+                <div class="relative w-full md:w-[45%] group perspective-1000">
+                  <div class="absolute -top-3 left-4 z-20">
+                    <span class="bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border-2 border-white uppercase tracking-wider">
+                      {isEnglish ? 'Before' : 'Antes'}
+                    </span>
+                  </div>
+                  <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
+                    <img src="/docs/para arreglar.jpg" alt="Antes / Before" class="w-full h-56 md:h-64 object-cover filter grayscale-[30%] hover:grayscale-0 transition-all duration-500" />
+                  </div>
+                </div>
+
+                {/* Arrow Connector */}
+                <div class="flex-shrink-0 z-20 text-bergner-red bg-white rounded-full p-2 shadow-lg border border-gray-100 transform md:rotate-0 rotate-90">
+                  <span class="material-symbols-outlined text-3xl font-bold">arrow_forward</span>
+                </div>
+
+                {/* After Image */}
+                <div class="relative w-full md:w-[45%] group perspective-1000">
+                  <div class="absolute -top-3 right-4 z-20">
+                    <span class="bg-bergner-red text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border-2 border-white uppercase tracking-wider">
+                       {isEnglish ? 'After' : 'Ahora'}
+                    </span>
+                  </div>
+                  <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-green-50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-green-100/50 hover:shadow-xl relative">
+                    <img src="/docs/nueva.jpg" alt="Después / After" class="w-full h-56 md:h-64 object-cover" />
+                    {/* Shine effect overlay */}
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  </div>
+                </div>
+             </div>
+
+             <div class="mt-8 flex justify-center">
+                <div class="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-sm border border-gray-200 text-sm font-medium text-gray-700">
+                  <span class="material-symbols-outlined text-green-500 text-xl">verified</span>
+                  {isEnglish ? 'Restoration: 100% functionality guaranteed' : 'Restauración completa: 100% garantizada'}
+                </div>
+             </div>
           </div>
-          <p class="text-center text-sm text-gray-500 italic bg-gray-50 py-2 rounded-lg">
-            {isEnglish ? 'Full restoration: 100% functionality guaranteed' : 'Restauración completa: Funcionalidad 100% garantizada'}
-          </p>
         </div>
 
-        {/* Texto abajo en mobile, derecha en desktop */}
-        <div class="order-last md:order-last">
-          <h3 class="text-2xl md:text-3xl font-bold text-bergner-red mb-6">
-            {isEnglish ? 'Valve Repair and Compressor Maintenance' : 'Reparación de Válvulas y Mantenimiento de Compresores'}
+        {/* Content Area */}
+        <div class="lg:w-[45%] p-8 md:p-12 flex flex-col justify-center bg-white relative">
+          <div class="absolute top-0 right-0 p-6 opacity-[0.03] pointer-events-none">
+             <span class="material-symbols-outlined text-9xl">build_circle</span>
+          </div>
+
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight relative z-10">
+            {isEnglish ? 'Valve Repair & Maintenance' : 'Reparación de Válvulas'}
           </h3>
           
-          <div class="space-y-4 text-gray-700 mb-8">
-            <p class="font-semibold text-lg">
+          <div class="space-y-6 relative z-10">
+            <p class="text-gray-600 leading-relaxed text-lg">
               {isEnglish 
-                ? 'We offer valve repair service, recovering main parts (covers and seats) and replacing all wear parts (discs, dampers and springs).'
-                : 'Ofrecemos el servicio de reparación de válvulas, recuperando las piezas principales (tapas y asientos) reemplazando la totalidad de los repuestos de desgaste (discos, amortiguadores y resortes).'}
+                ? 'Comprehensive recovery of covers and seats, replacing all wear parts (discs, dampers, springs) for optimal performance.'
+                : 'Recuperación integral de tapas y asientos, reemplazando todas las piezas de desgaste (discos, amortiguadores, resortes) para un rendimiento óptimo.'}
             </p>
             
-            <div>
-              <h4 class="font-bold text-bergner-red mb-3">
-                {isEnglish ? 'VALVE REPAIR SERVICE:' : 'SERVICIO DE REPARACIÓN DE VÁLVULAS:'}
+            <div class="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
+              <h4 class="font-bold text-bergner-blue mb-4 text-sm uppercase tracking-wide flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">settings</span>
+                {isEnglish ? 'Our Process' : 'Nuestro Proceso'}
               </h4>
-              <p class="mb-2 text-sm">
-                {isEnglish 
-                  ? 'Our service is performed according to the following procedure ensuring reconditioned valves are totally equivalent to new ones in quality and lifespan:'
-                  : 'Nuestro servicio se realiza de acuerdo al siguiente procedimiento que asegura que las válvulas reacondicionadas sean totalmente equivalentes a las nuevas en calidad y vida útil:'}
-              </p>
-              <ul class="space-y-2 text-sm list-inside">
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Disassembly and cleaning of valves.' : 'Desarme y limpieza de las válvulas.'}
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <span class="material-symbols-outlined text-bergner-red text-base mt-0.5">check</span>
+                  <span>{isEnglish ? 'Disassembly, cleaning & blasting' : 'Desarme, limpieza y blasting profundo'}</span>
                 </li>
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Seats and covers undergo a blasting process.' : 'Los asientos y tapas son sometidos a un proceso de blasting.'}
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <span class="material-symbols-outlined text-bergner-red text-base mt-0.5">check</span>
+                  <span>{isEnglish ? 'Precision machining to original specs' : 'Mecanizado de precisión según especificaciones'}</span>
                 </li>
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Internal consumable components, membranes, plates and springs are removed.' : 'Se retiran los componentes internos consumibles, membranas, platillos y resortes.'}
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <span class="material-symbols-outlined text-bergner-red text-base mt-0.5">check</span>
+                  <span>{isEnglish ? 'Full component replacement' : 'Reemplazo total de componentes internos'}</span>
                 </li>
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Machining process for seats and covers under original specifications of tolerance, parallelism and flatness.' : 'Proceso de mecanizado para los asientos y tapas bajo las especificaciones originales de tolerancia, paralelismo y planitud.'}
-                </li>
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Valve assembly, replacing all internal components with new parts according to manufacturer specifications.' : 'Montaje de las válvulas, reemplazando la totalidad de sus componentes internos por piezas nuevas de acuerdo a las especificaciones del fabricante.'}
-                </li>
-                <li class="pl-2 border-l-2 border-bergner-red">
-                  {isEnglish ? 'Leak and function tests are performed, then packed for dispatch.' : 'Se realizan pruebas de estanqueidad y funcionamiento, luego son embaladas para su despacho.'}
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <span class="material-symbols-outlined text-bergner-red text-base mt-0.5">check</span>
+                  <span>{isEnglish ? 'Leak & function testing' : 'Pruebas de estanqueidad y funcionamiento'}</span>
                 </li>
               </ul>
             </div>
 
-            <p class="text-sm italic text-gray-600 border-l-4 border-yellow-400 pl-4 py-2 bg-yellow-50 rounded-r">
-              {isEnglish 
-                ? 'The process takes seven days, although in case of urgency the term can be reduced to two days. To achieve these times we always keep in stock internal spare parts, membranes, dampers, separators, plates and springs.'
-                : 'El proceso se realiza en siete días, aunque, en caso de urgencia el plazo puede reducirse a dos días. Para lograr estos tiempos siempre mantenemos en stock los repuestos internos, membranas, amortiguadores, separadores, platillos y resortes.'}
-            </p>
-
-            <div class="mt-6 pt-6 border-t border-gray-100">
-              <h4 class="font-bold text-bergner-red mb-2">
-                {isEnglish ? 'COMPRESSOR MAINTENANCE SERVICE:' : 'SERVICIO DE MANTENIMIENTO DE COMPRESORES:'}
-              </h4>
-              <p class="text-gray-700">
-                {isEnglish 
-                  ? 'Metalúrgica Bergner also offers maintenance service for any type of piston compressors.'
-                  : 'Metalúrgica Bergner también ofrece el servicio para el mantenimiento de cualquier tipo de compresores a pistón.'}
-              </p>
+            <div class="flex items-center gap-4 pt-4">
+               <div class="w-12 h-12 rounded-full bg-bergner-red/10 flex items-center justify-center text-bergner-red flex-shrink-0">
+                 <span class="material-symbols-outlined">schedule</span>
+               </div>
+               <div>
+                  <p class="text-sm font-bold text-gray-900">{isEnglish ? 'Fast Turnaround' : 'Tiempos de Entrega'}</p>
+                  <p class="text-sm text-gray-500">{isEnglish ? 'Standard: 7 days / Urgent: 2 days' : 'Estándar: 7 días / Urgente: 2 días'}</p>
+               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    {/* Services Grid */}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {/* Services Grid - Modernized */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-          
-          <div class="w-14 h-14 rounded-lg bg-bergner-red/10 flex items-center justify-center mb-6 group-hover:bg-bergner-red transition-colors duration-300">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+          {/* Hover highlight line */}
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bergner-red to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+
+          <div class="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-bergner-red transition-colors duration-300 shadow-sm">
             <span class="material-symbols-outlined text-3xl text-bergner-red group-hover:text-white transition-colors">
               {service.icon}
             </span>
           </div>
 
-          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-bergner-red transition-colors">
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-bergner-red transition-colors">
             {service.title}
           </h3>
           
-          <p class="text-gray-600 leading-relaxed text-sm">
+          <p class="text-gray-500 leading-relaxed text-sm group-hover:text-gray-600">
             {service.description}
           </p>
         </div>
