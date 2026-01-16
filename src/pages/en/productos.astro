@@ -12,39 +12,70 @@ import site from '../../data/site.json';
 const productos = [
   {
     id: 1,
-    partNumber: '450-12',
-    title: 'Concentric Valve Model 450',
-    category: 'Valves',
-    description: 'Valve for compressors, carbon steel body.',
-    image: '/docs/SaveClip.App_81869298_579085676155469_8972480046240624672_n.jpg',
+    partNumber: 'AP-001',
+    title: 'Piston Rings',
+    category: 'Rings',
+    description: 'Compression and guide rings to ensure efficient sealing and prolong life.',
+    image: '/docs/producto 1.jpg',
     inStock: true,
-    pdf: '/docs/valvula-450.pdf',
-    specs: { 'Material': 'Steel', 'Diameter': '40 mm', 'Pressure': '200 Bar' }
+    pdf: '', 
+    specs: { 'Material': 'Cast Iron/Bronze/PTFE', 'Type': 'Compression/Guide' }
   },
   {
     id: 2,
-    partNumber: 'A-210',
-    title: 'Adjustment Ring A-210',
-    category: 'Rings',
-    description: 'Retaining ring for rotating shafts.',
-    image: '/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg',
-    inStock: true, // Assuming stock if photo exists
-    pdf: null,
-    inStock: false,
+    partNumber: 'VAL-002',
+    title: 'Valves',
+    category: 'Valves',
+    description: 'High efficiency intake, exhaust, and concentric valves.',
+    image: '/docs/producto 2.jpg',
+    inStock: true,
     pdf: '',
-    specs: { 'Material': 'Cast Iron', 'Application': 'Shafts 210 mm' }
+    specs: { 'Material': 'Steel / Stainless', 'Pressure': 'High/Low' }
   },
   {
-    id: 3,
-    partNumber: 'EMP-03',
-    title: 'Packing Type 03',
-    category: 'Packings',
-    description: 'Packing for sealing valves and pumps.',
-    image: '',
-    inStock: true,
-    pdf: '/docs/empaquetadura-03.pdf',
-    specs: { 'Material': 'Graphite', 'Temperature': '-50°C to 400°C' }
+      id: 3,
+      partNumber: 'PD-003',
+      title: 'Unloader Piston',
+      category: 'Pistons',
+      description: 'Components for regulation and load control systems.',
+      image: '/docs/producto 3.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Application': 'Load Control' }
   },
+  {
+      id: 4,
+      partNumber: 'JUN-004',
+      title: 'Gaskets',
+      category: 'Gaskets',
+      description: 'Gaskets for static sealing on covers, cylinders, and crankcases.',
+      image: '/docs/producto 4.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Types': 'Covers, Cylinders' }
+  },
+  {
+      id: 5,
+      partNumber: 'SV-005',
+      title: 'Rod Seals',
+      category: 'Seals',
+      description: 'Packing and dynamic seals for rods.',
+      image: '/docs/producto 5.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Function': 'Dynamic Sealing' }
+  },
+  {
+      id: 6,
+      partNumber: 'RI-006',
+      title: 'Internal Spare Parts',
+      category: 'Spare Parts',
+      description: 'Bearings, pins, bushings, and other internal components.',
+      image: '/docs/producto 6.jpeg',
+      inStock: true,
+      pdf: '',
+      specs: { 'Components': 'Various' }
+  }
 ];
 ---
 

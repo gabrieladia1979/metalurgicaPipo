@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import site from '../../data/site.json';
 ---
 
-<Layout title="Contacto">
+<Layout title="Contacto" description="WhatsApp, correo y dirección para consultas y cotizaciones.">
   <Header />
   
   <main class="min-h-screen bg-white">
@@ -41,8 +41,7 @@ import site from '../../data/site.json';
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Dirección</h3>
                   <p class="text-gray-600">
-                    Av. Corrientes 1234<br/>
-                    Buenos Aires, Argentina 1043
+                    {site.address}
                   </p>
                 </div>
               </div>
@@ -68,7 +67,7 @@ import site from '../../data/site.json';
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900 mb-1">Email</h3>
-                  <p class="text-gray-600">contacto@bergner.com.ar</p>
+                  <p class="text-gray-600">{site.email}</p>
                   <p class="text-gray-500 text-sm">Respuesta en 24 horas</p>
                 </div>
               </div>
@@ -80,8 +79,9 @@ import site from '../../data/site.json';
                   </div>
                 </div>
                 <div>
-                  <h3 class="font-bold text-gray-900 mb-1">WhatsApp</h3>
-                  <p class="text-gray-600 mb-2">+54 9 11 0000-0000</p>
+                  <h3 class="font-bold text-gray-900 mb-1">WhatsApp / Teléfono</h3>
+                  <p class="text-gray-600 mb-2">+54 9 11 4761-2929</p>
+                  <p class="text-gray-600 mb-2">{site.phone}</p>
                   <a 
                     href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, quiero consultar...')}`}
                     target="_blank"
