@@ -17,7 +17,7 @@ const whatsappNumber = site.whatsappNumber || '5491100000000';
 const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const txt = {
-  noImage: isEnglish ? 'No image' : 'Sin imagen',
+  noImage: isEnglish ? 'No image.' : 'Sin imagen.',
   consultar: isEnglish ? 'Request Price' : 'Consultar Precio'
 };
 ---

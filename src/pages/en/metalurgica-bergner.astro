@@ -3,6 +3,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import ClientCarousel from '../../components/ClientCarousel.astro';
 import site from '../../data/site.json';
 
 const brands = [
@@ -90,81 +91,6 @@ const clients = [
       </div>
     </section>
 
-    {/* Quality ISO 9001 */}
-    <section class="py-20 bg-white overflow-hidden relative">
-      <div class="absolute inset-0 bg-gray-50 transform -skew-y-3 origin-top-left z-0 h-full w-full opacity-50"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-16">
-          <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold tracking-wide uppercase mb-2">Certified Excellence</span>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">ISO 9001:2015 Quality</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            At Metalúrgica Bergner S.A., quality is not just a goal, it is our operating standard.
-          </p>
-        </div>
-        
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-          <div class="grid md:grid-cols-2">
-            <div class="p-10 md:p-12 flex flex-col justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-              <h3 class="text-3xl font-bold mb-6">Comprehensive Management System</h3>
-              <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-                Our commitment to continuous improvement is backed by ISO 9001:2015 certification, ensuring that every process, from raw material selection to final delivery, meets the highest international standards.
-              </p>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-4">
-                  <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                  <div>
-                    <h4 class="font-bold text-lg">Total Traceability</h4>
-                    <p class="text-gray-400 text-sm">Detailed tracking of every manufactured part.</p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                  <div>
-                    <h4 class="font-bold text-lg">Constant Audits</h4>
-                    <p class="text-gray-400 text-sm">Periodic internal and external controls.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="p-10 md:p-12 bg-white flex flex-col justify-center">
-              <div class="grid gap-8">
-                <div class="flex gap-5">
-                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">📏</div>
-                  <div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-2">100% Interchangeability</h4>
-                    <p class="text-gray-600">
-                      We guarantee that our spare parts are dimensionally and functionally identical to the originals, allowing direct replacement without adaptations.
-                    </p>
-                  </div>
-                </div>
-                
-                <div class="flex gap-5">
-                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">🔍</div>
-                  <div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-2">Dimensional Control</h4>
-                    <p class="text-gray-600">
-                      We use calibrated precision instruments to verify critical tolerances in our metrology laboratories.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex gap-5">
-                  <div class="w-12 h-12 rounded-lg bg-bergner-red/10 flex items-center justify-center flex-shrink-0 text-2xl text-bergner-red">🧪</div>
-                  <div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-2">Material Analysis</h4>
-                    <p class="text-gray-600">
-                      Hardness and chemical composition tests to ensure the resistance and durability required by operational demands.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* Brands and Clients */}
     <section class="bg-gray-50 py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,6 +123,10 @@ const clients = [
             </ul>
           </div>
         </div>
+      </div>
+
+      <div class="mt-16 w-full">
+        <ClientCarousel clients={clients} />
       </div>
     </section>
 

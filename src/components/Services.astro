@@ -56,10 +56,19 @@ const txt = {
   title: isEnglish ? 'Our Services' : 'Nuestros Servicios',
   subtitle: isEnglish ? 'Integral metallurgical solutions adapted to the needs of modern industry.' : 'Soluciones metalúrgicas integrales adaptadas a las necesidades de la industria moderna.'
 };
+
+const sustainabilityTxt = {
+  main: isEnglish 
+    ? "Throughout the years, Metalúrgica Bergner has established itself in the sector as a sustainable company, thanks to the responsibility of our employees and the relationship with our clients. We offer personalized service for each client, covering not only the manufacturing of valves and spare parts but also advice and management of their compressors. The human quality of Metalúrgica Bergner is fundamental to our continued sustainability."
+    : "A lo largo de los años, Metalúrgica Bergner se ha mostrado en el sector como una empresa sostenible gracias a la responsabilidad de nuestros empleados y a la relación con los clientes. Ofrecemos un servicio personalizado, no solo en la fabricación de válvulas y repuestos, sino también en el asesoramiento y gestión integral de sus compresores. La calidad humana es fundamental para nuestra sustentabilidad.",
+  highlight: isEnglish
+    ? "Our Technical Service team consists of mechanics with over 20 years of experience performing maintenance services for High Pressure compressors."
+    : "Nuestro equipo de Servicio Técnico está formado por mecánicos con más de 20 años de experiencia realizando servicios de mantenimiento de compresores de Alta Presión."
+};
 ---
 
 
-<section id="servicios" class="py-24 bg-gradient-to-b from-gray-50 to-white font-sans relative overflow-hidden">
+<section id="servicios" class="pt-12 pb-24 bg-gradient-to-b from-gray-50 to-white font-sans relative overflow-hidden">
   {/* Decorative background lines */}
   <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-bergner-blue to-bergner-red"></div>
   <div class="absolute -top-40 -right-40 w-96 h-96 bg-bergner-blue/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -77,6 +86,43 @@ const txt = {
       <p class="text-gray-600 max-w-3xl mx-auto text-xl leading-relaxed">
         {txt.subtitle}
       </p>
+    </div>
+
+    {/* Philosophy / Sustainability Section - Redesigned to match Valve Repair card */}
+    <div class="mb-24">
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row-reverse">
+        
+        {/* Visual / Highlight Area (Right side for balance) */}
+        <div class="lg:w-[45%] bg-slate-50 relative p-8 md:p-12 flex flex-col justify-center items-center text-center">
+            <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+            
+            <div class="relative z-10 max-w-sm">
+                <div class="w-20 h-20 bg-bergner-red/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="material-symbols-outlined text-4xl text-bergner-red">engineering</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">{isEnglish ? 'Technical Expertise' : 'Experiencia Técnica'}</h3>
+                <p class="text-gray-600 font-medium text-lg leading-relaxed">
+                 {sustainabilityTxt.highlight}
+               </p>
+            </div>
+        </div>
+
+        {/* Content Area */}
+        <div class="lg:w-[55%] p-8 md:p-12 flex flex-col justify-center bg-white relative border-r border-gray-100">
+           <div class="absolute top-0 left-0 p-6 opacity-[0.03] pointer-events-none">
+             <span class="material-symbols-outlined text-9xl">eco</span>
+          </div>
+          
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight relative z-10">
+            {isEnglish ? 'Sustainable Commitment' : 'Compromiso Sostenible'}
+          </h3>
+
+           <p class="text-gray-600 leading-relaxed text-lg relative z-10">
+               {sustainabilityTxt.main}
+           </p>
+        </div>
+
+      </div>
     </div>
 
     {/* Featured Service Section - Redesigned */}
@@ -125,7 +171,7 @@ const txt = {
              <div class="mt-8 flex justify-center">
                 <div class="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-sm border border-gray-200 text-sm font-medium text-gray-700">
                   <span class="material-symbols-outlined text-green-500 text-xl">verified</span>
-                  {isEnglish ? 'Restoration: 100% functionality guaranteed' : 'Restauración completa: 100% garantizada'}
+                  {isEnglish ? 'Restoration: 100% functionality guaranteed.' : 'Restauración completa: 100% garantizada.'}
                 </div>
              </div>
           </div>
@@ -179,7 +225,7 @@ const txt = {
                </div>
                <div>
                   <p class="text-sm font-bold text-gray-900">{isEnglish ? 'Fast Turnaround' : 'Tiempos de Entrega'}</p>
-                  <p class="text-sm text-gray-500">{isEnglish ? 'Standard: 7 days / Urgent: 2 days' : 'Estándar: 7 días / Urgente: 2 días'}</p>
+                  <p class="text-sm text-gray-500">{isEnglish ? 'Standard: 7 days / Urgent: 2 days.' : 'Estándar: 7 días / Urgente: 2 días.'}</p>
                </div>
             </div>
           </div>
