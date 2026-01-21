@@ -39,7 +39,7 @@ const texts = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
     
     {/* Logo */}
-    <div class="flex items-center gap-6 w-full">
+    <div class="flex items-center gap-6 flex-1">
       <div class="flex-shrink-0">
         <a href={`${langPrefix}/`} class="block" aria-label="Bergner Home">
           <img src="/docs/logo.jpeg" alt="BERGNER Argentina" class="h-16 w-auto object-contain" />
@@ -73,6 +73,7 @@ const texts = {
           {texts.contacto}
         </a>
       </nav>
+    </div>
 
     {/* CTA Button + Language + Mobile Menu */}
     <div class="flex items-center gap-3">
@@ -108,7 +109,7 @@ const texts = {
       {/* Hamburger Menu (Mobile) */}
       <button 
         id="mobile-menu-toggle"
-        class="md:hidden flex flex-col gap-1.5 cursor-pointer"
+        class="lg:hidden flex flex-col gap-1.5 cursor-pointer"
         aria-label="Menú móvil"
       >
         <span class="w-6 h-0.5 bg-gray-800 block transition-all"></span>
@@ -119,7 +120,7 @@ const texts = {
   </div>
 
   {/* Mobile Menu */}
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
     <nav class="flex flex-col py-4 px-4">
       <a href={`${langPrefix}/`} class="py-2 text-gray-700 hover:text-bergner-red transition-colors font-medium">
         {texts.inicio}
