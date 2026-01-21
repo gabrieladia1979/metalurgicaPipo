@@ -16,6 +16,15 @@ const clientes = [
   "Pampa Energía", "YPF", "Galileo", "Sector PET (embotelladoras)", 
   "Industria química y petroquímica", "Plantas de compresión de gas"
 ];
+
+const carouselImages = [
+  { src: "/carruselmarcas/pampa.png", alt: "Pampa Energía", className: "scale-[2]" },
+  { src: "/carruselmarcas/ypf.jpg", alt: "YPF" },
+  { src: "/carruselmarcas/galileo.png", alt: "Galileo" },
+  { src: "/carruselmarcas/abccomprossor.png", alt: "ABC Compressor", className: "scale-150" },
+  { src: "/carruselmarcas/bellis.png", alt: "Bellis & Morcom", className: "scale-75" },
+  { src: "/carruselmarcas/df.png", alt: "Partner" }
+];
 ---
 
 <Layout title="Quiénes Somos" description="Con más de 50 años en el mercado, en Metalúrgica Bergner S.A. fabricamos repuestos metalmecánicos para compresores a pistón, ofreciendo calidad, confiabilidad y compromiso en cada proyecto.">
@@ -123,7 +132,7 @@ const clientes = [
       </div>
 
       <div class="mt-16 w-full">
-        <ClientCarousel clients={clientes} />
+        <ClientCarousel clients={carouselImages} />
       </div>
     </section>
 
