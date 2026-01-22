@@ -18,6 +18,7 @@ const footerTexts = {
   privacidad: isEnglish ? 'Privacy Policy' : 'Política de Privacidad',
   terminos: isEnglish ? 'Terms of Service' : 'Términos de Servicio',
   derechos: isEnglish ? 'All rights reserved.' : 'Todos los derechos reservados.',
+  horario: isEnglish ? 'Mon-Fri: 08:00 - 17:00' : 'Lun-Vie: 08:00 - 17:00',
 };
 ---
 
@@ -54,7 +55,7 @@ const footerTexts = {
           <li>📍 Buenos Aires, Argentina</li>
           <li>📞 {site.phone}</li>
           <li>📧 contacto@bergner.com.ar</li>
-          <li>🕒 Lun-Vie: 9:00 - 18:00</li>
+          <li>🕒 {footerTexts.horario}</li>
         </ul>
       </div>
 

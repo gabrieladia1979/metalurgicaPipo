@@ -6,53 +6,66 @@ const linkPrefix = isEnglish ? '/en' : '/es';
 
 const familiesES = [
   {
-    title: "Válvulas de Compresor",
-    description: "Válvulas de plato, de anillos y concéntricas para alta y baja presión.",
-    items: ["Válvulas de Plato", "Válvulas de Anillo", "Kits de reparación"],
-    image: "/docs/valvulas.jpg"
+    title: "Quiénes Somos",
+    description: "Más de 50 años liderando la fabricación de repuestos para la industria del gas y petróleo.",
+    items: ["Trayectoria y Calidad", "Infraestructura", "Nuestros Clientes"],
+    image: "/docs/empresa.png",
+    link: "/metalurgica-bergner",
+    button: "CONOCER MÁS"
   },
   {
-    title: "Aros y Empaquetaduras",
-    description: "Sellado de alto rendimiento para pistones y vástagos.",
-    items: ["Aros de pistón", "Empaquetaduras de vástago", "Rascadores de aceite"],
-    image: "/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg"
+    title: "Nuestros Productos",
+    description: "Catálogo completo de válvulas, aros y repuestos con calidad internacional.",
+    items: ["Válvulas de Compresor", "Aros y Empaquetaduras", "Kits de reparación"],
+    image: "/docs/valvulas.jpg",
+    link: "/productos",
+    button: "VER CATÁLOGO"
   },
   {
-    title: "Servicios de Reparación",
-    description: "Rectificación y puesta a punto de componentes críticos.",
-    items: ["Reacondicionamiento", "Mecanizado CNC", "Pruebas hidráulicas"],
-    image: "/docs/para arreglar.jpg"
+    title: "Servicios Técnicos",
+    description: "Soluciones integrales de mantenimiento y reparación de componentes críticos.",
+    items: ["Reacondicionamiento", "Mecanizado CNC", "Asistencia Técnica"],
+    image: "/docs/para arreglar.jpg",
+    link: "/servicio-tecnico",
+    button: "VER SERVICIOS"
   }
 ];
 
 const familiesEN = [
   {
-    title: "Compressor Valves",
-    description: "Plate, ring and concentric valves for high and low pressure.",
-    items: ["Plate Valves", "Ring Valves", "Repair Kits"],
-    image: "/docs/valvulas.jpg"
+    title: "About Us",
+    description: "Over 50 years leading the manufacture of spare parts for the oil and gas industry.",
+    items: ["History & Quality", "Infrastructure", "Our Clients"],
+    image: "/docs/empresa.png",
+    link: "/metalurgica-bergner",
+    button: "LEARN MORE"
   },
   {
-    title: "Rings and Packings",
-    description: "High performance sealing for pistons and rods.",
-    items: ["Piston Rings", "Rod Packings", "Oil Scrapers"],
-    image: "/docs/SaveClip.App_81830464_178376533399964_6720169845861710459_n.jpg"
+    title: "Our Products",
+    description: "Complete catalog of valves, rings and spare parts with international quality.",
+    items: ["Compressor Valves", "Rings and Packings", "Repair Kits"],
+    image: "/docs/valvulas.jpg",
+    link: "/productos",
+    button: "VIEW CATALOG"
   },
   {
-    title: "Repair Services",
-    description: "Rectification and tuning of critical components.",
-    items: ["Reconditioning", "CNC Machining", "Hydraulic Tests"],
-    image: "/docs/para arreglar.jpg"
+    title: "Technical Services",
+    description: "Comprehensive solutions for maintenance and repair of critical components.",
+    items: ["Reconditioning", "CNC Machining", "Technical Assistance"],
+    image: "/docs/para arreglar.jpg",
+    link: "/servicio-tecnico",
+    button: "VIEW SERVICES"
   }
 ];
 
 const families = isEnglish ? familiesEN : familiesES;
 
 const txt = {
-  catalog: isEnglish ? "Catalog" : "Catálogo",
-  title: isEnglish ? "Our Solutions" : "Nuestras Soluciones",
-  subtitle: isEnglish ? "Replacement components and services with OEM quality for the industry." : "Componentes de reemplazo y servicios con calidad OEM para la industria.",
-  button: isEnglish ? "VIEW PRODUCTS" : "VER PRODUCTOS"
+  catalog: isEnglish ? "Explore" : "Explorar",
+  title: isEnglish ? "Welcome to Our Metallurgical Factory" : "Bienvenidos a Nuestra Fábrica Metalúrgica",
+  subtitle: isEnglish 
+    ? "We are leaders in the manufacture of metallurgical solutions, with over 50 years of experience dedicated to providing the highest quality and efficiency in each of our developments. We offer a wide range of custom solutions for specific applications. In addition, we have an engineering department available for advice and technical inquiries, ensuring the choice of the most suitable product for each need." 
+    : "Somos líderes en la fabricación de soluciones metalúrgicas, con más de 50 años de experiencia dedicados a brindar la más alta calidad y eficiencia en cada uno de nuestros desarrollos. Ofrecemos una amplia gama de soluciones a medida para aplicaciones específicas. Además, contamos con un departamento de ingeniería disponible para asesoramiento y consultas técnicas, garantizando la elección del producto más adecuado para cada necesidad.",
 };
 ---
 
@@ -60,10 +73,15 @@ const txt = {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <span class="text-bergner-red font-bold tracking-wider uppercase text-sm">{txt.catalog}</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">{txt.title}</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        {txt.subtitle}
-      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6 uppercase tracking-tight">{txt.title}</h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <hr class="border-gray-200 mb-6" />
+        <p class="text-lg text-gray-600 leading-relaxed text-justify px-4 md:px-12">
+          {txt.subtitle}
+        </p>
+        <hr class="border-gray-200 mt-6" />
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -96,10 +114,10 @@ const txt = {
             </ul>
 
             <a 
-              href={`${linkPrefix}/productos`} 
+              href={`${linkPrefix}${family.link}`} 
               class="inline-flex items-center text-bergner-red font-bold tracking-wide hover:text-red-800 transition-colors"
             >
-              {txt.button}
+              {family.button}
               <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>

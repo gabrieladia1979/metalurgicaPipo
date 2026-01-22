@@ -1,80 +1,49 @@
 ---
-// src/components/CategoryGrid.astro
-
-interface Category {
-  id: string;
-  name: string;
-  icon: string;
-  slug: string;
-}
+// src/components/CategoryGrid.astro (Ahora transformado en StatsSection)
 
 const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
-const langPrefix = isEnglish ? '/en' : '/es';
 
-const categoriesES: Category[] = [
-  { id: '1', name: 'Válvulas', icon: '⚙️', slug: 'valvulas' },
-  { id: '2', name: 'Compresores', icon: '🔋', slug: 'compresores' },
-  { id: '3', name: 'Repuestos', icon: '🔧', slug: 'repuestos' },
-  { id: '4', name: 'Mecanizado', icon: '🏗️', slug: 'mecanizado' },
-  { id: '5', name: 'Servicios', icon: '🛠️', slug: 'servicios' },
-  { id: '6', name: 'Proyectos', icon: '📋', slug: 'proyectos' },
+const stats = [
+  { 
+    id: 1, 
+    value: "50", 
+    label: isEnglish ? "YEARS OF EXPERIENCE" : "AÑOS DE EXPERIENCIA", 
+    icon: `<svg class="w-12 h-12 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`
+  },
+  { 
+    id: 2, 
+    value: "15", 
+    label: isEnglish ? "IN PLANT" : "EN PLANTA", 
+    icon: `<svg class="w-12 h-12 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`
+  },
+  { 
+    id: 3, 
+    value: "N° 1", 
+    label: isEnglish ? "IN SERVICE & QUALITY" : "EN ATENCIÓN Y CALIDAD", 
+    icon: `<svg class="w-12 h-12 mb-3 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`
+  }
 ];
-
-const categoriesEN: Category[] = [
-  { id: '1', name: 'Valves', icon: '⚙️', slug: 'valves' },
-  { id: '2', name: 'Compressors', icon: '🔋', slug: 'compressors' },
-  { id: '3', name: 'Spare Parts', icon: '🔧', slug: 'spares' },
-  { id: '4', name: 'Machining', icon: '🏗️', slug: 'machining' },
-  { id: '5', name: 'Services', icon: '🛠️', slug: 'services' },
-  { id: '6', name: 'Projects', icon: '📋', slug: 'projects' },
-];
-
-const categories = isEnglish ? categoriesEN : categoriesES;
-
-const texts = {
-  tag: isEnglish ? 'Explore by Category' : 'Explora por Categoría',
-  title: isEnglish ? 'Industrial Solutions' : 'Soluciones Industriales',
-  subtitle: isEnglish ? 'Top quality components and maintenance for the industry.' : 'Componentes de máxima calidad y mantenimiento para la industria.'
-};
 ---
 
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section-container">
+  
+  {/* Stats Section Parallax */}
+  <div class="relative h-[400px] md:h-[500px] flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('/carrusel/Gemini_Generated_Image_wb75o1wb75o1wb75.png');">
+    <div class="absolute inset-0 bg-black/70"></div>
     
-    <div class="text-center mb-16">
-      <span class="inline-block text-bergner-red font-semibold text-sm uppercase tracking-widest mb-4">
-        {texts.tag}
-      </span>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        {texts.title}
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-        {texts.subtitle}
-      </p>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-      {categories.map((category) => (
-        <a 
-          href={`${langPrefix}/productos?categoria=${category.slug}`}
-          class="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center hover:from-bergner-red/5 hover:to-bergner-red/10 transition-all duration-300 border border-gray-200 hover:border-bergner-red/30"
-        >
-          {/* Efecto de fondo */}
-          <div class="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          <div class="relative z-10">
-            <div class="text-5xl mb-4">{category.icon}</div>
-            <h3 class="text-xl font-bold text-gray-900 group-hover:text-bergner-red transition-colors">
-              {category.name}
-            </h3>
-            <p class="text-gray-500 text-sm mt-2 group-hover:text-gray-600">
-              Ver productos
-            </p>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {stats.map((stat) => (
+          <div class="border border-white/30 bg-white/5 backdrop-blur-sm p-8 text-center text-white rounded-lg hover:bg-white/10 transition-colors group">
+            <div class="text-bergner-red group-hover:scale-110 transition-transform duration-300" set:html={stat.icon} />
+            <div class="text-5xl font-bold mb-2">{stat.value}</div>
+            <div class="text-sm uppercase tracking-widest font-medium">{stat.label}</div>
           </div>
-        </a>
-      ))}
+        ))}
+      </div>
     </div>
-
   </div>
+
 </section>
+
