@@ -36,23 +36,25 @@ const metaDesc = description || defaultDesc;
     <slot />
     
     <!-- Botón flotante WhatsApp -->
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4 group">
-       {/* Etiqueta flotante */}
-      <span class="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg font-medium text-sm transition-all duration-300 opacity-100 group-hover:translate-x-[-10px] hidden sm:block relative after:content-[''] after:absolute after:top-1/2 after:right-[-6px] after:-translate-y-1/2 after:border-t-8 after:border-t-transparent after:border-l-8 after:border-l-white after:border-b-8 after:border-b-transparent">
-        Whatsapp
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+      <span class="bg-white text-gray-800 px-3 py-2 rounded-lg shadow-lg font-medium text-xs transition-all duration-300 opacity-100 group-hover:translate-x-[-6px] hidden sm:block relative after:content-[''] after:absolute after:top-1/2 after:right-[-6px] after:-translate-y-1/2 after:border-t-8 after:border-t-transparent after:border-l-8 after:border-l-white after:border-b-8 after:border-b-transparent">
+        WhatsApp
       </span>
 
-      <a 
-        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, vi su web y quiero consultar por productos Bergner...')}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-        class="bg-[#25D366] hover:bg-[#20bd5a] text-white w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center"
-      >
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.9 1.225l-.35-.177-3.632.363.369-3.431-.211-.338a9.9 9.9 0 011.527-5.645C6.45.931 10.437-.046 14.122 1.261c3.686 1.307 6.348 4.708 6.348 8.653 0 2.373-.72 4.619-2.086 6.52l-.26.39 3.04.364-.368 3.471-.394-.221a9.875 9.875 0 01-6.302 2.216h-.003c-5.487 0-9.979-4.492-9.979-9.979 0-2.633 1.024-5.115 2.886-7.041z"/>
-        </svg>
-      </a>
+      <div class="relative flex items-center justify-center">
+        <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+        <a
+          href={`https://wa.me/${site.whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar por WhatsApp"
+          class="relative bg-[#25D366] hover:bg-[#20bd5a] text-white w-16 h-16 rounded-full shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.37 0 .02 5.35 0 11.94c0 2.1.55 4.15 1.6 5.97L0 24l6.27-1.64a11.94 11.94 0 0 0 5.72 1.46h.01c6.6 0 11.98-5.35 11.99-11.94a11.87 11.87 0 0 0-3.47-8.4zM12 21.5h-.01a9.52 9.52 0 0 1-4.86-1.33l-.35-.2-3.72.97.99-3.63-.23-.37A9.56 9.56 0 0 1 2.5 11.95C2.5 6.84 6.92 2.5 12.03 2.5A9.37 9.37 0 0 1 21.5 12c-.01 5.11-4.42 9.5-9.5 9.5zm5.17-7.13c-.28-.14-1.64-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.19-.28.28-.46.09-.18.04-.34-.02-.48-.06-.14-.61-1.46-.84-2-.22-.53-.45-.45-.61-.46-.16-.01-.34-.01-.52-.01-.18 0-.47.07-.72.35-.25.28-.95.96-.95 2.34 0 1.38.98 2.72 1.11 2.9.14.19 1.92 2.93 4.65 4.11.65.28 1.16.45 1.55.57.65.21 1.25.18 1.71.11.52-.08 1.62-.66 1.85-1.3.23-.65.23-1.2.16-1.3-.06-.12-.25-.19-.53-.33z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </body>
 </html>
