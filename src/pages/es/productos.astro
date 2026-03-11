@@ -2,261 +2,157 @@
 // src/pages/es/productos.astro
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import ProductCard from '../../components/ProductCard.astro';
-import IndustrialPartCard from '../../components/IndustrialPartCard.astro';
-import ProductTable from '../../components/ProductTable.astro';
 import Footer from '../../components/Footer.astro';
 import site from '../../data/site.json';
 
-// Datos de ejemplo - reemplazar con datos de CMS o BD
+const whatsappNumber = site.whatsappNumber || '5491100000000';
+
 const productos = [
   {
     id: 1,
-    partNumber: 'AP-001',
     title: 'Aros de Pistón',
-    category: 'Aros',
-    description: 'Aros de compresión y guía para asegurar un sellado eficiente y prolongar la vida útil.',
+    subtitle: 'Compresión y Guía',
+    description: 'Fabricamos aros de compresión y guía para pistones de compresores a pistón. Disponibles en hierro fundido, bronce y PTFE con carga según la aplicación. Garantizan un sellado eficiente, reducen el desgaste y prolongan la vida útil del compresor. Se fabrican bajo plano o muestra del cliente.',
     image: '/docs/producto 1.jpg',
-    inStock: true,
-    pdf: '', // Aros no suelen tener PDF único
-    specs: { 'Material': 'Hierro Fundido/Bronce/PTFE', 'Tipo': 'Compresión/Guía' }
+    tags: ['Hierro Fundido', 'Bronce', 'PTFE'],
   },
   {
     id: 2,
-    partNumber: 'VAL-002',
-    title: 'Válvulas',
-    category: 'Válvulas',
-    description: 'Válvulas de admisión, escape y concéntricas de alta eficiencia.',
+    title: 'Válvulas de Compresor',
+    subtitle: 'Admisión, Escape y Concéntricas',
+    description: 'Diseñamos y fabricamos válvulas de admisión, escape y concéntricas de alta eficiencia para compresores de gas y aire. Construidas en acero inoxidable y aleaciones especiales, aseguran un funcionamiento confiable a alta y baja presión. Reemplazamos válvulas de cualquier marca o modelo.',
     image: '/docs/producto 2.jpg',
-    inStock: true,
-    pdf: '',
-    specs: { 'Material': 'Acero / Inoxidable', 'Presión': 'Alta/Baja' }
+    tags: ['Acero Inoxidable', 'Alta Presión', 'Baja Presión'],
   },
   {
-      id: 3,
-      partNumber: 'PD-003',
-      title: 'Pistón Descargador',
-      category: 'Pistones',
-      description: 'Componentes para sistemas de regulación y control de carga.',
-        image: '/docs/producto 3.jpeg',
-      inStock: true,
-      pdf: '',
-      specs: { 'Aplicación': 'Control de carga' }
+    id: 3,
+    title: 'Pistón Descargador',
+    subtitle: 'Regulación y Control de Carga',
+    description: 'El pistón descargador es un componente clave en los sistemas de regulación de compresores. Fabricamos pistones descargadores a medida, adaptados a los requerimientos de cada equipo, garantizando un control de carga preciso y eficiente.',
+    image: '/docs/producto 3.jpeg',
+    tags: ['Control de Carga', 'Regulación', 'A Medida'],
   },
   {
-      id: 4,
-      partNumber: 'JUN-004',
-      title: 'Juntas',
-      category: 'Juntas',
-      description: 'Juntas para sellado estático en tapas, cilindros y cárter.',
-        image: '/docs/producto 4.jpeg',
-      inStock: true,
-      pdf: '',
-      specs: { 'Tipos': 'Tapas, Cilindros' }
+    id: 4,
+    title: 'Juntas',
+    subtitle: 'Sellado Estático para Tapas, Cilindros y Cárter',
+    description: 'Producimos juntas planas y especiales para sellado estático en tapas de cilindros, cuerpo de compresor y cárter. Disponibles en grafito, cobre, aluminio, Klinger y otros materiales. Se fabrican bajo plano o muestra, para cualquier marca y modelo de compresor.',
+    image: '/docs/producto 4.jpeg',
+    tags: ['Grafito', 'Cobre', 'Aluminio', 'Klinger'],
   },
   {
-      id: 5,
-      partNumber: 'SV-005',
-      title: 'Sellos de Vástago',
-      category: 'Sellos',
-      description: 'Empaquetaduras y sellos dinámicos para vástagos.',
-        image: '/docs/producto 5.jpeg',
-      inStock: true,
-      pdf: '',
-      specs: { 'Función': 'Sellado dinámico' }
+    id: 5,
+    title: 'Sellos de Vástago',
+    subtitle: 'Empaquetaduras y Sellado Dinámico',
+    description: 'Fabricamos empaquetaduras y sellos dinámicos para vástagos de compresores a pistón. Incluyen rascadores de aceite y empaquetaduras de presión de tipo tangencial y radial, en materiales como Babbitt, bronce y PTFE/grafito, adaptados a las condiciones operativas de cada equipo.',
+    image: '/docs/producto 5.jpeg',
+    tags: ['Babbitt', 'Bronce', 'PTFE/Grafito', 'Tangencial/Radial'],
   },
   {
-      id: 6,
-      partNumber: 'RI-006',
-      title: 'Repuestos Internos',
-      category: 'Repuestos',
-      description: 'Cojinetes, pernos, bujes y otros componentes internos.',
-        image: '/docs/producto 6.jpeg',
-      inStock: true,
-      pdf: '',
-      specs: { 'Componentes': 'Varios' }
-      },
-      {
-        id: 7,
-        partNumber: 'VAL-007',
-        title: 'Válvulas Concéntricas',
-        category: 'Válvulas',
-        description: 'Conjuntos concéntricos de admisión y descarga para alto rendimiento.',
-        image: '/docs/image copy.png',
-        inStock: true,
-        pdf: '',
-        specs: { 'Tipo': 'Concéntricas', 'Aplicación': 'Admisión/Descarga' }
-      },
-      {
-        id: 8,
-        partNumber: 'EMP-008',
-        title: 'Empaquetaduras de Vástago',
-        category: 'Empaquetaduras',
-        description: 'Rascadores de aceite y empaquetaduras de presión (tangencial/radial).',
-        image: '/docs/image copy 8.png',
-        inStock: true,
-        pdf: '',
-        specs: { 'Materiales': 'Babbit, Bronce, PTFE/Grafito', 'Tipo': 'Tangencial/Radial' }
-      },
-      {
-        id: 9,
-        partNumber: 'ARO-009',
-        title: 'Aros Guía',
-        category: 'Aros',
-        description: 'Aros guía para pistón en PTFE con carga, bronce o micarta.',
-        image: '/docs/image copy 9.png',
-        inStock: true,
-        pdf: '',
-        specs: { 'Material': 'PTFE/BRONCE/MICARTA', 'Función': 'Guía' }
-      },
-      {
-        id: 10,
-        partNumber: 'JUN-010',
-        title: 'Juntas Especiales',
-        category: 'Juntas',
-        description: 'Juntas en grafito, cobre, aluminio y Klinger bajo plano o muestra.',
-        image: '/docs/image copy 10.png',
-        inStock: true,
-        pdf: '',
-        specs: { 'Materiales': 'Grafito/Cobre/Aluminio/Klinger' }
-  }
+    id: 6,
+    title: 'Repuestos Internos',
+    subtitle: 'Cojinetes, Bujes, Pernos y Más',
+    description: 'Suministramos una amplia gama de repuestos internos para compresores a pistón: cojinetes, bujes, pernos especiales, pasadores, arandelas y otros componentes críticos. Trabajamos con los planos del cliente o tomamos medidas directamente de las piezas originales para garantizar una reposición exacta.',
+    image: '/docs/producto 6.jpeg',
+    tags: ['Cojinetes', 'Bujes', 'Pernos', 'Componentes Varios'],
+  },
 ];
 ---
 
-<Layout title="Productos | Repuestos para Compresores a Pistón" description="Válvulas, empaquetaduras, aros, juntas y mecanizado de piezas especiales.">
+<Layout title="Productos | Repuestos para Compresores a Pistón" description="Válvulas, aros, empaquetaduras, juntas y repuestos para compresores a pistón. Fabricación nacional con más de 50 años de experiencia.">
   <Header />
 
   <main class="min-h-screen bg-white">
-    {/* Header */}
-    <div class="bg-gradient-to-b from-gray-50 to-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Catálogo de Productos
+
+    {/* Hero de la sección */}
+    <div class="bg-gray-950 text-white py-20 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('/docs/valvulas.jpg')] bg-cover bg-center"></div>
+      <div class="relative max-w-4xl mx-auto text-center">
+        <span class="inline-block bg-bergner-red text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">Nuestros Productos</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          Repuestos para Compresores<br class="hidden md:block" /> a Pistón
         </h1>
-        <p class="text-lg text-gray-600">
-          Explore nuestra amplia selección de equipamiento industrial profesional.
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          Fabricamos repuestos bajo plano o muestra para cualquier marca y modelo de compresor. 
+          Más de 50 años de experiencia garantizan calidad y precisión en cada pieza.
         </p>
       </div>
     </div>
 
-    {/* Products Grid */}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="mb-6">
-        <div class="flex flex-col md:flex-row md:items-center md:gap-4">
-          <input id="page-search-input" type="search" placeholder="Filtrar por código, nombre o categoría" class="w-full md:w-1/2 border border-gray-300 rounded-lg py-2 px-3 text-sm" />
-          <div class="mt-3 md:mt-0 flex gap-2">
-            <button id="view-grid" type="button" class="px-3 py-2 bg-white border border-gray-300 rounded text-sm">Vista Cuadrícula</button>
-            <button id="view-table" type="button" class="px-3 py-2 bg-white border border-gray-300 rounded text-sm">Vista Tabla</button>
-          </div>
-        </div>
-        <p id="search-results" class="text-sm text-gray-600 mt-2"></p>
-      </div>
+    {/* Lista de Productos */}
+    <section class="py-20 px-4">
+      <div class="max-w-6xl mx-auto space-y-0">
+        {productos.map((producto, index) => (
+          <div
+            class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-0 border-b border-gray-100 last:border-0`}
+          >
+            {/* Imagen */}
+            <div class="w-full md:w-1/2 overflow-hidden bg-gray-50">
+              <div class="relative h-80 md:h-96 overflow-hidden group">
+                <img
+                  src={producto.image}
+                  alt={producto.title}
+                  class="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-950/10 to-transparent"></div>
+              </div>
+            </div>
 
-      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {productos.map((producto) => (
-          <IndustrialPartCard
-            partNumber={producto.partNumber}
-            name={producto.title}
-            specs={producto.specs}
-            image={producto.image}
-            inStock={producto.inStock}
-            pdf={producto.pdf}
-          />
+            {/* Contenido */}
+            <div class={`w-full md:w-1/2 py-12 ${index % 2 === 0 ? 'md:pl-16 md:pr-8' : 'md:pr-16 md:pl-8'}`}>
+              <div class="w-10 h-0.5 bg-bergner-red mb-5"></div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-1">{producto.title}</h2>
+              <p class="text-bergner-red font-semibold text-sm uppercase tracking-wide mb-5">{producto.subtitle}</p>
+              <p class="text-gray-600 leading-relaxed mb-7 text-base">
+                {producto.description}
+              </p>
+
+              {/* Tags */}
+              <div class="flex flex-wrap gap-2 mb-8">
+                {producto.tags.map(tag => (
+                  <span class="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-full border border-gray-200">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa consultar sobre: ${producto.title}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 bg-gray-950 hover:bg-bergner-red text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 group"
+              >
+                <svg class="w-5 h-5 text-green-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.9 1.225l-.35-.177-3.632.363.369-3.431-.211-.338a9.9 9.9 0 011.527-5.645C6.45.931 10.437-.046 14.122 1.261c3.686 1.307 6.348 4.708 6.348 8.653 0 2.373-.72 4.619-2.086 6.52l-.26.39 3.04.364-.368 3.471-.394-.221a9.875 9.875 0 01-6.302 2.216h-.003c-5.487 0-9.979-4.492-9.979-9.979 0-2.633 1.024-5.115 2.886-7.041z"/>
+                </svg>
+                Consultar por este producto
+              </a>
+            </div>
+          </div>
         ))}
       </div>
-
-      <div id="products-table" class="hidden mt-8">
-        <ProductTable products={productos} />
-      </div>
-    </div>
+    </section>
 
     {/* CTA Final */}
-    <section class="bg-bergner-red text-white py-16 mt-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿No encontró lo que buscaba?</h2>
+    <section class="bg-bergner-red text-white py-16 mt-4">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Necesita un repuesto que no aparece aquí?</h2>
         <p class="text-lg mb-8 opacity-90">
-          Contáctenos para consultar por otros productos o realizar un pedido a medida.
+          Fabricamos piezas a medida bajo plano o muestra. Contáctenos y le asesoramos.
         </p>
-        <a 
-          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hola, tengo una consulta sobre productos Bergner...')}`}
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola, tengo una consulta sobre productos Bergner...')}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block bg-white text-bergner-red hover:bg-gray-100 px-8 py-4 rounded-lg font-bold transition-colors"
+          class="inline-block bg-white text-bergner-red hover:bg-gray-100 px-10 py-4 rounded-lg font-bold text-lg transition-colors"
         >
           Contactar por WhatsApp
         </a>
       </div>
     </section>
+
   </main>
 
   <Footer />
 </Layout>
-
-<script>
-  (function(){
-    const params = new URLSearchParams(location.search);
-    const q = (params.get('q')||'').toLowerCase().trim();
-    const grid = document.getElementById('products-grid');
-    const items = grid?.querySelectorAll('[data-title]');
-    const headerInput = document.getElementById('header-search-input');
-    const pageInput = document.getElementById('page-search-input');
-    const resultsEl = document.getElementById('search-results');
-
-    if(headerInput && q) headerInput.value = params.get('q');
-    if(pageInput && q) pageInput.value = params.get('q');
-
-    function filter(term){
-      const t = (term||'').toLowerCase().trim();
-      let any=false;
-      items?.forEach(el=>{
-        const title = (el.dataset.title||'').toLowerCase();
-        const cat = (el.dataset.category||'').toLowerCase();
-        const desc = (el.dataset.description||'').toLowerCase();
-        const show = !t || title.includes(t) || cat.includes(t) || desc.includes(t);
-        el.style.display = show ? '' : 'none';
-        if(show) any = true;
-      });
-      if(resultsEl){
-        resultsEl.textContent = t ? (any ? `Resultados para "${t}"` : `No se encontraron resultados para "${t}"`) : '';
-      }
-    }
-
-    // initial
-    filter(q);
-
-    // listen for input on page
-    if(pageInput){
-      pageInput.addEventListener('input', (e)=>{
-        const val = e.target.value;
-        history.replaceState(null, '', val ? `?q=${encodeURIComponent(val)}` : location.pathname);
-        if(headerInput) headerInput.value = val;
-        filter(val);
-      });
-    }
-
-    // View toggle (grid / table)
-    const btnGrid = document.getElementById('view-grid');
-    const btnTable = document.getElementById('view-table');
-    const gridEl = document.getElementById('products-grid');
-    const tableEl = document.getElementById('products-table');
-
-    function setView(view){
-      if(view==='table'){
-        gridEl.classList.add('hidden');
-        tableEl.classList.remove('hidden');
-        history.replaceState(null,'',`?view=table${pageInput?.value?`&q=${encodeURIComponent(pageInput.value)}`:''}`);
-      } else {
-        tableEl.classList.add('hidden');
-        gridEl.classList.remove('hidden');
-        history.replaceState(null,'',`${location.pathname}${pageInput?.value?`?q=${encodeURIComponent(pageInput.value)}`:''}`);
-      }
-    }
-
-    btnGrid?.addEventListener('click', ()=> setView('grid'));
-    btnTable?.addEventListener('click', ()=> setView('table'));
-
-    // initialize view param
-    const viewParam = new URLSearchParams(location.search).get('view');
-    if(viewParam==='table') setView('table');
-  })();
-</script>
