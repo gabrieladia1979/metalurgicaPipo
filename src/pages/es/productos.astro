@@ -10,51 +10,39 @@ const whatsappNumber = site.whatsappNumber || '5491100000000';
 const productos = [
   {
     id: 1,
-    title: 'Aros de Pistón',
-    subtitle: 'Compresión y Guía',
-    description: 'Fabricamos aros de compresión y guía para pistones de compresores a pistón. Disponibles en hierro fundido, bronce y PTFE con carga según la aplicación. Garantizan un sellado eficiente, reducen el desgaste y prolongan la vida útil del compresor. Se fabrican bajo plano o muestra del cliente.',
-    image: '/docs/producto 1.jpg',
-    tags: ['Hierro Fundido', 'Bronce', 'PTFE'],
+    title: 'Válvulas de Compresor',
+    subtitle: 'Admisión, Escape y Concéntricas',
+    description: 'Diseñamos y fabricamos válvulas de admisión, escape y concéntricas de alta eficiencia para compresores de gas y aire. Están construidas en acero inoxidable y aleaciones especiales, garantizando un funcionamiento confiable tanto en condiciones de alta como de baja presión. Las válvulas incorporan tratamientos superficiales que incrementan la resistencia al desgaste, reducen la fricción y contribuyen a prolongar la vida útil de los componentes.',
+    image: '/fotos_productos/foto1.jpeg',
+    objectPosition: 'center center',
+    tags: ['Acero Inoxidable', 'Alta Presión', 'Baja Presión', 'Tratamiento Superficial'],
   },
   {
     id: 2,
-    title: 'Válvulas de Compresor',
-    subtitle: 'Admisión, Escape y Concéntricas',
-    description: 'Diseñamos y fabricamos válvulas de admisión, escape y concéntricas de alta eficiencia para compresores de gas y aire. Construidas en acero inoxidable y aleaciones especiales, aseguran un funcionamiento confiable a alta y baja presión. Reemplazamos válvulas de cualquier marca o modelo.',
-    image: '/docs/producto 2.jpg',
-    tags: ['Acero Inoxidable', 'Alta Presión', 'Baja Presión'],
+    title: 'Aros de Pistón',
+    subtitle: 'Guía y Compresión',
+    description: 'Los compresores alternativos utilizan dos tipos principales de aros: guía y compresión. El aro guía mantiene el pistón correctamente alineado dentro del cilindro, asegurando un desplazamiento estable y rectilíneo. Los aros de compresión garantizan la estanqueidad de la cámara durante la carrera del pistón. Dependiendo de la presión de trabajo, los compresores pueden operar en dos, tres o más etapas de compresión, reduciendo progresivamente el volumen de gas para una compresión eficiente.',
+    image: '/fotos_productos/aros.jpeg',
+    objectPosition: 'center center',
+    tags: ['Hierro Fundido', 'Bronce', 'PTFE', 'Multietapa'],
   },
   {
     id: 3,
-    title: 'Pistón Descargador',
-    subtitle: 'Regulación y Control de Carga',
-    description: 'El pistón descargador es un componente clave en los sistemas de regulación de compresores. Fabricamos pistones descargadores a medida, adaptados a los requerimientos de cada equipo, garantizando un control de carga preciso y eficiente.',
-    image: '/docs/producto 3.jpeg',
-    tags: ['Control de Carga', 'Regulación', 'A Medida'],
-  },
-  {
-    id: 4,
-    title: 'Juntas',
-    subtitle: 'Sellado Estático para Tapas, Cilindros y Cárter',
-    description: 'Producimos juntas planas y especiales para sellado estático en tapas de cilindros, cuerpo de compresor y cárter. Disponibles en grafito, cobre, aluminio, Klinger y otros materiales. Se fabrican bajo plano o muestra, para cualquier marca y modelo de compresor.',
-    image: '/docs/producto 4.jpeg',
-    tags: ['Grafito', 'Cobre', 'Aluminio', 'Klinger'],
-  },
-  {
-    id: 5,
     title: 'Sellos de Vástago',
-    subtitle: 'Empaquetaduras y Sellado Dinámico',
-    description: 'Fabricamos empaquetaduras y sellos dinámicos para vástagos de compresores a pistón. Incluyen rascadores de aceite y empaquetaduras de presión de tipo tangencial y radial, en materiales como Babbitt, bronce y PTFE/grafito, adaptados a las condiciones operativas de cada equipo.',
-    image: '/docs/producto 5.jpeg',
+    subtitle: 'Empaquetaduras y Sellos',
+    description: 'Fabricamos empaquetaduras y sistemas de sellado para vástagos de compresores alternativos. Incluyen rascadores y empaquetaduras de tipo tangencial y radial, diseñadas para asegurar la correcta estanqueidad y el funcionamiento confiable del sistema bajo presión. Se fabrican en materiales como Babbitt, bronce y compuestos de PTFE/grafito, seleccionados según las condiciones de presión, temperatura y régimen operativo de cada equipo.',
+    image: '/fotos_productos/sellos.jpeg',
+    objectPosition: 'center 30%',
     tags: ['Babbitt', 'Bronce', 'PTFE/Grafito', 'Tangencial/Radial'],
   },
   {
-    id: 6,
-    title: 'Repuestos Internos',
-    subtitle: 'Cojinetes, Bujes, Pernos y Más',
-    description: 'Suministramos una amplia gama de repuestos internos para compresores a pistón: cojinetes, bujes, pernos especiales, pasadores, arandelas y otros componentes críticos. Trabajamos con los planos del cliente o tomamos medidas directamente de las piezas originales para garantizar una reposición exacta.',
-    image: '/docs/producto 6.jpeg',
-    tags: ['Cojinetes', 'Bujes', 'Pernos', 'Componentes Varios'],
+    id: 4,
+    title: 'Pistón Descargador de Bronce',
+    subtitle: 'Control de Carga por Accionamiento Neumático',
+    description: 'Componente diseñado para la apertura mecánica de válvulas de admisión en compresores de gas y aire. Transmite el movimiento generado por un cilindro neumático de simple efecto, permitiendo modular la capacidad operativa del compresor. Su geometría optimizada en bronce antifricción garantiza un accionamiento dinámico y suave, con alta durabilidad ante frecuencias de ciclado elevadas y ajuste preciso para el conjunto Pistón–Abreválvula–Válvula.',
+    image: '/fotos_productos/valvulas.jpeg',
+    objectPosition: 'center 20%',
+    tags: ['Bronce Antifricción', 'Accionamiento Neumático', 'Alta Durabilidad', 'A Medida'],
   },
 ];
 ---
@@ -80,54 +68,60 @@ const productos = [
     </div>
 
     {/* Lista de Productos */}
-    <section class="py-20 px-4">
-      <div class="max-w-6xl mx-auto space-y-0">
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
         {productos.map((producto, index) => (
           <div
-            class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-0 border-b border-gray-100 last:border-0`}
+            class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch gap-0 border-b border-gray-100 last:border-0`}
           >
             {/* Imagen */}
-            <div class="w-full md:w-1/2 overflow-hidden bg-gray-50">
-              <div class="relative h-80 md:h-96 overflow-hidden group">
+            <div class="w-full md:w-1/2 overflow-hidden">
+              <div class="relative h-80 md:h-[500px] overflow-hidden group">
                 <img
                   src={producto.image}
                   alt={producto.title}
-                  class="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                  style={`object-position: ${producto.objectPosition}`}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-950/10 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-5">
+                  <span class="text-white/60 text-xs font-bold tracking-widest uppercase">{String(producto.id).padStart(2,'0')}</span>
+                </div>
               </div>
             </div>
 
             {/* Contenido */}
-            <div class={`w-full md:w-1/2 py-12 ${index % 2 === 0 ? 'md:pl-16 md:pr-8' : 'md:pr-16 md:pl-8'}`}>
+            <div class={`w-full md:w-1/2 py-14 ${index % 2 === 0 ? 'md:pl-16 md:pr-10' : 'md:pr-16 md:pl-10'} flex flex-col justify-center`}>
               <div class="w-10 h-0.5 bg-bergner-red mb-5"></div>
-              <h2 class="text-3xl font-bold text-gray-900 mb-1">{producto.title}</h2>
-              <p class="text-bergner-red font-semibold text-sm uppercase tracking-wide mb-5">{producto.subtitle}</p>
-              <p class="text-gray-600 leading-relaxed mb-7 text-base">
+              <h2 class="text-3xl font-bold text-gray-900 mb-2 leading-tight">{producto.title}</h2>
+              <p class="text-bergner-red font-semibold text-sm uppercase tracking-widest mb-6">{producto.subtitle}</p>
+              <p class="text-gray-600 leading-relaxed mb-8 text-base">
                 {producto.description}
               </p>
 
               {/* Tags */}
               <div class="flex flex-wrap gap-2 mb-8">
                 {producto.tags.map(tag => (
-                  <span class="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-full border border-gray-200">
+                  <span class="bg-gray-50 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200 hover:border-bergner-red hover:text-bergner-red transition-colors">
                     {tag}
                   </span>
                 ))}
               </div>
 
               {/* CTA */}
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa consultar sobre: ${producto.title}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-3 bg-gray-950 hover:bg-bergner-red text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 group"
-              >
-                <svg class="w-5 h-5 text-green-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.9 1.225l-.35-.177-3.632.363.369-3.431-.211-.338a9.9 9.9 0 011.527-5.645C6.45.931 10.437-.046 14.122 1.261c3.686 1.307 6.348 4.708 6.348 8.653 0 2.373-.72 4.619-2.086 6.52l-.26.39 3.04.364-.368 3.471-.394-.221a9.875 9.875 0 01-6.302 2.216h-.003c-5.487 0-9.979-4.492-9.979-9.979 0-2.633 1.024-5.115 2.886-7.041z"/>
-                </svg>
-                Consultar por este producto
-              </a>
+              <div>
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa consultar sobre: ${producto.title}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-3 bg-gray-950 hover:bg-bergner-red text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 group shadow-md hover:shadow-lg"
+                >
+                  <svg class="w-5 h-5 text-green-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.9 1.225l-.35-.177-3.632.363.369-3.431-.211-.338a9.9 9.9 0 011.527-5.645C6.45.931 10.437-.046 14.122 1.261c3.686 1.307 6.348 4.708 6.348 8.653 0 2.373-.72 4.619-2.086 6.52l-.26.39 3.04.364-.368 3.471-.394-.221a9.875 9.875 0 01-6.302 2.216h-.003c-5.487 0-9.979-4.492-9.979-9.979 0-2.633 1.024-5.115 2.886-7.041z"/>
+                  </svg>
+                  Consultar por este producto
+                </a>
+              </div>
             </div>
           </div>
         ))}

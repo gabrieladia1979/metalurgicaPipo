@@ -10,51 +10,39 @@ const whatsappNumber = site.whatsappNumber || '5491100000000';
 const products = [
   {
     id: 1,
-    title: 'Piston Rings',
-    subtitle: 'Compression and Guide Rings',
-    description: 'We manufacture compression and guide rings for reciprocating compressor pistons. Available in cast iron, bronze, and loaded PTFE depending on the application. They ensure efficient sealing, reduce wear, and extend the compressor\'s service life. Manufactured to customer drawings or samples.',
-    image: '/docs/producto 1.jpg',
-    tags: ['Cast Iron', 'Bronze', 'PTFE'],
+    title: 'Compressor Valves',
+    subtitle: 'Intake, Exhaust and Concentric',
+    description: 'We design and manufacture high-efficiency intake, exhaust, and concentric valves for gas and air compressors. Built in stainless steel and special alloys, they ensure reliable operation at high and low pressure. The valves incorporate surface treatments that increase wear resistance, reduce friction and contribute to extending the service life of the components.',
+    image: '/fotos_productos/foto1.jpeg',
+    objectPosition: 'center center',
+    tags: ['Stainless Steel', 'High Pressure', 'Low Pressure', 'Surface Treatment'],
   },
   {
     id: 2,
-    title: 'Compressor Valves',
-    subtitle: 'Intake, Exhaust and Concentric',
-    description: 'We design and manufacture high-efficiency intake, exhaust, and concentric valves for gas and air compressors. Built in stainless steel and special alloys, they ensure reliable operation at high and low pressure. We replicate valves from any brand or model.',
-    image: '/docs/producto 2.jpg',
-    tags: ['Stainless Steel', 'High Pressure', 'Low Pressure'],
+    title: 'Piston Rings',
+    subtitle: 'Guide and Compression',
+    description: 'Reciprocating compressors use two main types of rings: guide and compression. The guide ring keeps the piston correctly aligned inside the cylinder, ensuring stable and rectilinear displacement. Compression rings ensure chamber tightness during the piston stroke. Depending on the working pressure, compressors can operate in two, three or more compression stages, progressively reducing the gas volume for efficient compression.',
+    image: '/fotos_productos/aros.jpeg',
+    objectPosition: 'center center',
+    tags: ['Cast Iron', 'Bronze', 'PTFE', 'Multi-stage'],
   },
   {
     id: 3,
-    title: 'Unloader Piston',
-    subtitle: 'Regulation and Load Control',
-    description: 'The unloader piston is a key component in compressor regulation systems. We manufacture custom unloader pistons tailored to each equipment\'s requirements, ensuring precise and efficient load control.',
-    image: '/docs/producto 3.jpeg',
-    tags: ['Load Control', 'Regulation', 'Custom Made'],
-  },
-  {
-    id: 4,
-    title: 'Gaskets',
-    subtitle: 'Static Sealing for Covers, Cylinders and Crankcases',
-    description: 'We produce flat and special gaskets for static sealing on cylinder heads, compressor bodies, and crankcases. Available in graphite, copper, aluminum, Klinger, and other materials. Manufactured to drawings or samples, for any brand and model of compressor.',
-    image: '/docs/producto 4.jpeg',
-    tags: ['Graphite', 'Copper', 'Aluminum', 'Klinger'],
-  },
-  {
-    id: 5,
     title: 'Rod Seals',
-    subtitle: 'Packings and Dynamic Sealing',
-    description: 'We manufacture packing rings and dynamic seals for reciprocating compressor rods. These include oil scrapers and pressure packings of tangential and radial type, in materials such as Babbitt, bronze, and PTFE/graphite, adapted to the operating conditions of each unit.',
-    image: '/docs/producto 5.jpeg',
+    subtitle: 'Packings and Seals',
+    description: 'We manufacture packing rings and sealing systems for reciprocating compressor rods. They include scrapers and tangential and radial packings, designed to ensure correct tightness and reliable operation under pressure. Manufactured in materials such as Babbitt, bronze and PTFE/graphite compounds, selected according to the pressure, temperature and operating regime conditions of each unit.',
+    image: '/fotos_productos/sellos.jpeg',
+    objectPosition: 'center 30%',
     tags: ['Babbitt', 'Bronze', 'PTFE/Graphite', 'Tangential/Radial'],
   },
   {
-    id: 6,
-    title: 'Internal Spare Parts',
-    subtitle: 'Bearings, Bushings, Bolts and More',
-    description: 'We supply a wide range of internal spare parts for reciprocating compressors: bearings, bushings, special bolts, pins, washers, and other critical components. We work from customer drawings or take measurements directly from original parts to ensure an exact replacement.',
-    image: '/docs/producto 6.jpeg',
-    tags: ['Bearings', 'Bushings', 'Bolts', 'Various Components'],
+    id: 4,
+    title: 'Bronze Unloader Piston',
+    subtitle: 'Load Control by Pneumatic Actuation',
+    description: 'Component designed for the mechanical opening of intake valves in gas and air compressors. Transmits the movement generated by a single-acting pneumatic cylinder, allowing the modulation of the compressor\'s operating capacity. Its optimized geometry in anti-friction bronze ensures smooth and dynamic actuation, with high durability under high cycling frequencies and precise fit for the Piston–Valve Opener–Valve assembly.',
+    image: '/fotos_productos/valvulas.jpeg',
+    objectPosition: 'center 20%',
+    tags: ['Anti-friction Bronze', 'Pneumatic Actuation', 'High Durability', 'Custom Made'],
   },
 ];
 ---
@@ -80,54 +68,60 @@ const products = [
     </div>
 
     {/* Products List */}
-    <section class="py-20 px-4">
-      <div class="max-w-6xl mx-auto space-y-0">
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
         {products.map((product, index) => (
           <div
-            class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-0 border-b border-gray-100 last:border-0`}
+            class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch gap-0 border-b border-gray-100 last:border-0`}
           >
             {/* Image */}
-            <div class="w-full md:w-1/2 overflow-hidden bg-gray-50">
-              <div class="relative h-80 md:h-96 overflow-hidden group">
+            <div class="w-full md:w-1/2 overflow-hidden">
+              <div class="relative h-80 md:h-[500px] overflow-hidden group">
                 <img
                   src={product.image}
                   alt={product.title}
-                  class="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                  style={`object-position: ${product.objectPosition}`}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-950/10 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-5">
+                  <span class="text-white/60 text-xs font-bold tracking-widest uppercase">{String(product.id).padStart(2,'0')}</span>
+                </div>
               </div>
             </div>
 
             {/* Content */}
-            <div class={`w-full md:w-1/2 py-12 ${index % 2 === 0 ? 'md:pl-16 md:pr-8' : 'md:pr-16 md:pl-8'}`}>
+            <div class={`w-full md:w-1/2 py-14 ${index % 2 === 0 ? 'md:pl-16 md:pr-10' : 'md:pr-16 md:pl-10'} flex flex-col justify-center`}>
               <div class="w-10 h-0.5 bg-bergner-red mb-5"></div>
-              <h2 class="text-3xl font-bold text-gray-900 mb-1">{product.title}</h2>
-              <p class="text-bergner-red font-semibold text-sm uppercase tracking-wide mb-5">{product.subtitle}</p>
-              <p class="text-gray-600 leading-relaxed mb-7 text-base">
+              <h2 class="text-3xl font-bold text-gray-900 mb-2 leading-tight">{product.title}</h2>
+              <p class="text-bergner-red font-semibold text-sm uppercase tracking-widest mb-6">{product.subtitle}</p>
+              <p class="text-gray-600 leading-relaxed mb-8 text-base">
                 {product.description}
               </p>
 
               {/* Tags */}
               <div class="flex flex-wrap gap-2 mb-8">
                 {product.tags.map(tag => (
-                  <span class="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-full border border-gray-200">
+                  <span class="bg-gray-50 text-gray-600 text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200 hover:border-bergner-red hover:text-bergner-red transition-colors">
                     {tag}
                   </span>
                 ))}
               </div>
 
               {/* CTA */}
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I'd like to inquire about: ${product.title}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-3 bg-gray-950 hover:bg-bergner-red text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 group"
-              >
-                <svg class="w-5 h-5 text-green-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-                </svg>
-                Inquire about this product
-              </a>
+              <div>
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I'd like to inquire about: ${product.title}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-3 bg-gray-950 hover:bg-bergner-red text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 group shadow-md hover:shadow-lg"
+                >
+                  <svg class="w-5 h-5 text-green-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.9 1.225l-.35-.177-3.632.363.369-3.431-.211-.338a9.9 9.9 0 011.527-5.645C6.45.931 10.437-.046 14.122 1.261c3.686 1.307 6.348 4.708 6.348 8.653 0 2.373-.72 4.619-2.086 6.52l-.26.39 3.04.364-.368 3.471-.394-.221a9.875 9.875 0 01-6.302 2.216h-.003c-5.487 0-9.979-4.492-9.979-9.979 0-2.633 1.024-5.115 2.886-7.041z"/>
+                  </svg>
+                  Inquire about this product
+                </a>
+              </div>
             </div>
           </div>
         ))}
