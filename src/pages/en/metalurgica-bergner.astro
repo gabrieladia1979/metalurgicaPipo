@@ -3,7 +3,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import ClientCarousel from '../../components/ClientCarousel.astro';
 import site from '../../data/site.json';
 
 const brands = [
@@ -13,18 +12,12 @@ const brands = [
 ];
 
 const clients = [
-  "Pampa Energía", "YPF", "Galileo", "PET Sector (bottling)", 
-  "Chemical and Petrochemical Industry", "Gas compression plants"
-];
-
-const carouselImages = [
-  { src: "/carruselmarcas/pampa.png", alt: "Pampa Energía", className: "scale-[2]" },
-  { src: "/carruselmarcas/ypf.jpg", alt: "YPF" },
-  { src: "/carruselmarcas/galileo.png", alt: "Galileo" },
-  { src: "/carruselmarcas/bellis.png", alt: "Bellis & Morcom", className: "scale-75" },
-  { src: "/carruselmarcas/logonuevo1.png", alt: "Client" },
-  { src: "/carruselmarcas/logonuevo2.png", alt: "Client" },
-  { src: "/carruselmarcas/logonuevo3.png", alt: "Client" }
+  "PET Bottling Industry",
+  "Chemical and Petrochemical Industry",
+  "Natural gas transport and distribution (CNG/NGV)",
+  "Refineries and Oil Companies (Upstream / Downstream)",
+  "Industrial refrigeration systems",
+  "Glass industry and thermal processes"
 ];
 ---
 
@@ -122,8 +115,8 @@ const carouselImages = [
 
           {/* Clients */}
           <div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Client Companies</h3>
-            <p class="text-gray-600 mb-6">They trust us:</p>
+            <h3 class="text-2xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">Industries & Applications</h3>
+            <p class="text-gray-600 mb-6">Where we have experience:</p>
             <ul class="space-y-4">
               {clients.map(client => (
                 <li class="flex items-center gap-3 text-lg text-gray-700">
@@ -133,10 +126,6 @@ const carouselImages = [
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="mt-16 w-full">
-        <ClientCarousel clients={carouselImages} />
       </div>
     </section>
 
