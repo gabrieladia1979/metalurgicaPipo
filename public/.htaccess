@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Redireccionar init del sitio a /es/
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /es/ [R=302,L]
+
+# Configuración opcional para páginas de error personalizadas
+ErrorDocument 404 /404.html
