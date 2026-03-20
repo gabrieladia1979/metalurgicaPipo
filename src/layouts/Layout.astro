@@ -14,7 +14,7 @@ const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
 
 // URL base del sitio — funciona en Vercel, bergner.com.ar, etc.
 const siteOrigin = Astro.url.origin;
-const ogImageUrl = `${siteOrigin}/android-chrome-512x512.png`;
+const ogImageUrl = `${siteOrigin}/Logowhatsapp.png`;
 const canonicalUrl = `${siteOrigin}${currentPath}`;
 
 const defaultDesc = "Fabricación de repuestos para compresores alternativos. Más de 50 años de experiencia. Contacto y cotizaciones.";
@@ -51,12 +51,10 @@ const metaDesc = description || defaultDesc;
 
     <title>{title} | Bergner S.A.</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Favicon (SVG sin fondo, se adapta a modo claro/oscuro del navegador) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Logowhatsapp.png" />
+    <link rel="apple-touch-icon" href="/Logowhatsapp.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- JSON-LD: Google Logo en resultados de búsqueda -->
