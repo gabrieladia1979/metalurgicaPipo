@@ -12,6 +12,11 @@ import site from '../data/site.json';
 const currentPath = Astro.url.pathname;
 const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
 
+// URL base del sitio — funciona en Vercel, bergner.com.ar, etc.
+const siteOrigin = Astro.url.origin;
+const ogImageUrl = `${siteOrigin}/android-chrome-512x512.png`;
+const canonicalUrl = `${siteOrigin}${currentPath}`;
+
 const defaultDesc = "Fabricación de repuestos para compresores alternativos. Más de 50 años de experiencia. Contacto y cotizaciones.";
 const metaDesc = description || defaultDesc;
 ---
@@ -27,22 +32,28 @@ const metaDesc = description || defaultDesc;
     <!-- Open Graph / WhatsApp / Redes Sociales -->
     <meta property="og:title" content={`${title} | Metalúrgica Bergner S.A.`} />
     <meta property="og:description" content={metaDesc} />
-    <meta property="og:image" content="https://bergner.com.ar/android-chrome-512x512.png" />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:url" content="https://bergner.com.ar" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Metalúrgica Bergner S.A." />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={`${title} | Metalúrgica Bergner S.A.`} />
     <meta name="twitter:description" content={metaDesc} />
-    <meta name="twitter:image" content="https://bergner.com.ar/android-chrome-512x512.png" />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Seguridad -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <title>{title} | Bergner S.A.</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -53,8 +64,8 @@ const metaDesc = description || defaultDesc;
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Metalúrgica Bergner S.A.",
-      "url": "https://bergner.com.ar",
-      "logo": "https://bergner.com.ar/android-chrome-512x512.png",
+      "url": siteOrigin,
+      "logo": ogImageUrl,
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+54-351-461-3939",

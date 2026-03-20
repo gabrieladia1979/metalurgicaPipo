@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://bergner.com.ar',
+  site: 'https://metalurgica-bergner.vercel.app',
   integrations: [react(), tailwind(), sitemap()],
   i18n: {
     defaultLocale: "es",
